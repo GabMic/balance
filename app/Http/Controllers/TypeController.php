@@ -54,7 +54,7 @@ class TypeController extends Controller
 
         $attributes = $request->validate([
             "name" => 'string|required',
-            "consumer_number" => 'required'
+            "consumer_number" => 'numeric'
         ]);
 
         Type::create($attributes + ['user_id' => auth()->user()->id]);

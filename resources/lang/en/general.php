@@ -40,5 +40,6 @@ return [
     'new-tag-consumer-number' => 'Consumer Number For this tag',
     'consumer-number-help' => '.If you do not know your consumer number or it is not relevant, just write 123',
     'set-new-budget-for' => 'Set new Budget for',
-    'what-budget-would-you-like-to-hold' => '?What budget would you like to keep this month'
+    'what-budget-would-you-like-to-hold' => '?What budget would you like to keep this month',
+    'form-errors' => 'There were some errors in the form, please fix them.'
 ];

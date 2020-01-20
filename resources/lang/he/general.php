@@ -40,5 +40,6 @@ return [
     'new-tag-consumer-number' => 'מספר צרכן',
     'consumer-number-help' => 'אם לא ידוע לכם או שאין לכם או שזה לא רלוונטי, פשוט רשמו 123.',
     'set-new-budget-for' => 'קביעת התקציב עבור חודש',
-    'what-budget-would-you-like-to-hold' => 'באיזה תקציב תרצו לעמוד החודש?'
+    'what-budget-would-you-like-to-hold' => 'באיזה תקציב תרצו לעמוד החודש?',
+    'form-errors' => 'היו כמה בעיות בטופס, אנא תקנו אותם.'
 ];

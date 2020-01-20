@@ -9,11 +9,14 @@
         <div class="column is-4">
             <h5 class="subtitle is-5">{{__('general.set-new-budget-for')}} <b>{{$month}}</b></h5>
             <hr>
+            @if($errors->any())
+                @include('partials.form-errors')
+            @endif
             <form action="{{route('budget.store')}}" method="post">
                 @csrf
                 <div class="field">
                     <div class="control">
-                        <input type="number" class="input" step="0.01" name="budget" placeholder="{{__('general.what-budget-would-you-like-to-hold')}}">
+                        <input type="number" class="input @error('budget') is-danger @enderror" step="0.01" name="budget" placeholder="{{__('general.what-budget-would-you-like-to-hold')}}">
                     </div>
                 </div>
                 <button class="button is-fullwidth is-success is-outlined">{{__('general.bill-form-submit')}}</button>

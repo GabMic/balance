@@ -1,6 +1,6 @@
 <section class="section">
     @guest
-       <h5 class="title is-5 has-text-centered"> <a href="{{route('login')}}">{{__('general.login')}}</a> / <a href="{{route('register', app()->getLocale())}}">{{__('general.register')}}</a> {{__('general.to-get-started')}}</h5>
+        @include('partials.register-or-login')
     @endguest
     <div class="tile is-ancestor">
         <div class="tile is-parent">
@@ -10,7 +10,7 @@
                         <div class="level-item">
                             <div class="is-widget-label">
                                 <h5 class="subtitle is-5 is-spaced">{{__('general.budget')}} {{__('general.for-month')}} {{$month}}</h5>
-                                <h1 class="title is-1-mobile">{{ $globalBalanceData['globalAppBudget']}}</h1>
+                                <h1 class="title is-1-mobile">{{$globalBalanceData['globalAppBudget']}}  {{__('general.currency')}}</h1>
                             </div>
                         </div>
                         <div class="level-item has-widget-icon">
@@ -30,7 +30,7 @@
                         <div class="level-item">
                             <div class="is-widget-label">
                                 <h5 class="subtitle is-5 is-spaced">@lang('general.total-paid-this-month') {{$month}}</h5>
-                                <h1 class="title is-1-mobile">{{$globalBalanceData['globalAppActivity']}}</h1>
+                                <h1 class="title is-1-mobile">{{$globalBalanceData['globalAppActivity']}} {{__('general.currency')}}</h1>
                             </div>
                         </div>
                         <div class="level-item has-widget-icon">
