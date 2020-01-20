@@ -14,7 +14,7 @@
             @csrf
             <b-field label="{{__('general.payment-type')}}">
 
-                <b-select placeholder="{{__('general.payment-type')}}"   name="type_id" style="text-align: right">
+                <b-select placeholder="{{__('general.payment-type')}}"   name="type_id" style="text-align: {{auth()->check() && auth()->user()->locale == 'he' ? 'right' : 'left'}}">
 
                     @forelse($globalBalanceData['types'] as $type)
                         <option value="{{$type->id}}">{{ $type->name }}</option>
@@ -29,7 +29,7 @@
                 <b-input type="number" placeholder="{{__('general.amount-paid')}}" custom-class="@error('amount') is-danger @enderror"  name="amount" step="0.01" value="{{old('amount')}}"></b-input>
             </b-field>
             <b-field label="{{__('general.payment-method')}}">
-                <b-select placeholder="{{__('general.payment-method')}}" name="method_id" style="text-align: right">
+                <b-select placeholder="{{__('general.payment-method')}}" name="method_id" style="text-align: {{auth()->check() && auth()->user()->locale == 'he' ? 'right' : 'left'}}">
                     @forelse($globalBalanceData['methods'] as $method)
                         <option value="{{$method->id}}">{{ $method->type }}</option>
                     @empty

@@ -36,12 +36,10 @@
                 const target = document.getElementById("type");
                 const type = target.options[target.selectedIndex].value;
                 let task = {content: this.content, type: type}
-                let path = location.pathname.split('/')[1] + '/tasks';
-                axios.post(path, {
+                axios.post('/tasks', {
                     content: this.content,
                     type_id: type
                 }).then(({data}) => {
-                    console.log({data})
                     EventBus.$emit('addTask', task)
                     EventBus.$emit('flash', data.message)
                 }).catch(function (error) {

@@ -41,5 +41,10 @@ return [
     'consumer-number-help' => 'אם לא ידוע לכם או שאין לכם או שזה לא רלוונטי, פשוט רשמו 123.',
     'set-new-budget-for' => 'קביעת התקציב עבור חודש',
     'what-budget-would-you-like-to-hold' => 'באיזה תקציב תרצו לעמוד החודש?',
-    'form-errors' => 'היו כמה בעיות בטופס, אנא תקנו אותם.'
+    'form-errors' => 'היו כמה בעיות בטופס, אנא תקנו אותם.',
+    'things-to-remember-about-tag' => 'דברים לזכור לגבי התגית ',
+    'no-notes' => 'לא נוספו פתקים בינתיים',
+    'display-data-for-another-year'=>'בחירת נתוני תשלום עבור שנה אחרת',
+    'for' => 'עבור ',
+    'note-deleted' => 'הפתק נמחק'
 ];

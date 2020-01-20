@@ -91,12 +91,11 @@ class TaskController extends Controller
      * @param Task $task
      * @return Response
      */
-    public function destroy()
+    public function destroy(Task $task)
     {
-        $task = Task::find(request('id'));
         $task->delete();
         if (request()->expectsJson()) {
-            return 'הפתק נמחק בהצלחה';
+            return __('general.note-deleted');
         }
         return "nothing here";
     }

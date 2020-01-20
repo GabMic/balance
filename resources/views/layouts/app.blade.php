@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{auth()->check() ? auth()->user()->locale : 'en'}}">
+<html lang="{{auth()->check() ? auth()->user()->locale : 'en'}}" dir="{{auth()->check() && auth()->user()->locale == 'he' ? 'rtl' : 'ltr'}}">
 <head>
     <meta http-equiv="Content-Type" content="text/html" charset="windows-1255">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,7 +11,7 @@
 
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alef&amp;display=swap">
-    <link rel="prefetch" href="https://cdn.materialdesignicons.com/4.7.95/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.7.95/css/materialdesignicons.min.css">
     <style>
         body{font-family: 'Alef', sans-serif;}
     </style>

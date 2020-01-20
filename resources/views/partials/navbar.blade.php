@@ -1,16 +1,16 @@
-<nav class="navbar" role="navigation" style="direction: rtl;">
+<nav class="navbar" role="navigation" style="direction: {{auth()->check() && auth()->user()->locale == 'he' ? 'rtl' : 'ltr'}}">
     <div class="container">
         <div class="navbar-brand">
             <a href="{{ route('home') }}" class="navbar-item" tabindex="1" style="margin-bottom:0"><img src="{{asset('storage/icons/balance-logo.png')}}" alt=""></a>
-            <div class="navbar-burger burger rtl-navbar" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active'); this.classList.toggle('is-active');">
+            <div class="navbar-burger burger {{auth()->check() && auth()->user()->locale == 'he' ? 'rtl-navbar' : ''}}" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active'); this.classList.toggle('is-active');">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
         </div>
         <div class="navbar-menu">
-            <div class="navbar-start rtl-navbar"></div>
-            <div class="navbar-end rtl-navbar">
+            <div class="navbar-start {{auth()->check() && auth()->user()->locale == 'he' ? 'rtl-navbar' : ''}}"></div>
+            <div class="navbar-end {{auth()->check() && auth()->user()->locale == 'he' ? 'rtl-navbar' : ''}}">
                 @guest
                     @include('partials.language-dropdown')
                     <div class="navbar-item has-text-centered">

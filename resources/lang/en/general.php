@@ -3,10 +3,11 @@
 return [
     'budget' => 'My Budget',
     'open-notes' => 'Open Notes',
-    'total-paid-this-month' => 'Total payments for',
+    'total-paid-this-month' => 'Total payments',
     'add-a-note' => 'Add A note',
     'my-notes' => 'My Notes',
     'new-activity' => 'Create New Activity',
+    'new-tag' => 'Create A new Tag',
     'new-tag' => 'Create A new Tag',
     'currency' => '$',
     'login' => 'Login',
@@ -41,5 +42,10 @@ return [
     'consumer-number-help' => '.If you do not know your consumer number or it is not relevant, just write 123',
     'set-new-budget-for' => 'Set new Budget for',
     'what-budget-would-you-like-to-hold' => '?What budget would you like to keep this month',
-    'form-errors' => 'There were some errors in the form, please fix them.'
+    'form-errors' => 'There were some errors in the form, please fix them.',
+    'things-to-remember-about-tag' => 'Things to remember about ',
+    'no-notes' => 'No notes were added yet.',
+    'display-data-for-another-year' => 'Display data for another year',
+    'for' => 'for',
+    'note-deleted' => 'Note Deleted'
 ];

@@ -8,30 +8,30 @@
     <div class="columns is-centered m-1">
         <div class="column is-7">
             <div class="box">
-                <h6 class="title is-6">בחירת נתוני תשלום עבור שנה אחרת</h6>
+                <h6 class="title is-6">{{__('general.display-data-for-another-year')}}</h6>
                 <div class="select">
                     <select id="selectDataYear">
                         <option value="2020">2020</option>
                         <option value="2019">2019</option>
                     </select>
                 </div>
-                <button class="button is-info is-outlined" onclick="displayNewDataOnChart()">הצג</button>
+                <button class="button is-info is-outlined" onclick="displayNewDataOnChart()">{{__('general.bill-form-submit')}}</button>
             </div>
             <canvas id="myChart" aria-label="טבלת נתונים עבור הוצאות" role="img"></canvas>
             <hr>
-            <h6 class="title is-6">דברים לזכור לגבי התגית <b>{{$type->name}}</b> </h6>
+            <h6 class="title is-6">{{__('general.things-to-remember-about-tag')}}<b>{{$type->name}}</b> </h6>
             <div class="list" style="box-shadow: none; color: black; border-radius: 0">
                 @forelse($type->task as $task)
                    <div class="list-item"> {{$task->content}}</div>
                     @empty
-                        <h4 class="title is-4">לא נוספו פתקים בינתיים</h4>
+                        <h4 class="title is-4">{{__('general.no-notes')}}</h4>
                 @endforelse
             </div>
         </div>
         <div class="column is-3 m-1">
             <div class="box">
                 <p>
-                    סך התשלומים המצטברים עבור {{$type->name}}: <strong>{{$type->activity->sum('amount')}}</strong> ש"ח.
+                    {{__('general.total-paid-this-month')}} {{__('general.for')}} {{$type->name}}: <strong>{{$type->activity->sum('amount')}}</strong> {{__('general.currency')}}.
                 </p>
             </div>
             <hr>
