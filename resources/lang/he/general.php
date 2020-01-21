@@ -6,7 +6,7 @@ return [
     'total-paid-this-month' => 'סך תשלומים לחודש',
     'add-a-note' => 'הוספת פתק',
     'my-notes' => 'הפתקים שלי',
-    'new-activity' => 'פעילות חדשה',
+    'new-activity' => 'פעילות חדשה +',
     'new-tag' => 'תגית חדשה +',
     'currency' => ' ש"ח',
     'login' => 'התחברות',
