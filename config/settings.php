@@ -4,7 +4,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | User Specific settings for appearance
+    | User Specific settings for appearance and languages
     |--------------------------------------------------------------------------
     |
     | Most templating systems load templates from disk. Here you may specify
@@ -13,9 +13,9 @@ return [
     |
     */
 
-    'layout' => [
-         'dir' => env('APP_DIRECTION', 'ltr'),
-         'navbar-class' => config('settings.layout.dir') == 'rtl' ? 'rtl-navbar' : ''
-        ],
 
+        'months' => [
+            'english' => ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
+            'hebrew' => ['ינואר', 'פברואר', 'מרץ', 'אפריל', 'מאי', 'יוני', 'יולי', 'אוגוסט', 'ספטמבר', 'אוקטובר', 'נובמבר', 'דצמבר']
+        ]
 ];

@@ -47,7 +47,7 @@ class TypeController extends Controller
      * Store a newly created resource in storage.
      *
      * @param Request $request
-     * @return Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
@@ -64,12 +64,21 @@ class TypeController extends Controller
 
     public function show(Type $type)
     {
-
         list($year, $month) = $this->date();
 
         $chartData = $this->buildChartData($type, $year);
+
         $currentMonthTypeActivitiesList = $type->activity($month, $year)->get();
-        JavaScript::put(["amounts" => Arr::flatten($chartData), "nameOfChart" => $type->name, 'typeActivitiesList' => $currentMonthTypeActivitiesList, 'type' => $type]);
+
+        JavaScript::put([
+            "amounts" => Arr::flatten($chartData),
+            "nameOfChart" => $type->name,
+            'typeActivitiesList' => $currentMonthTypeActivitiesList,
+            'type' => $type,
+            'paymentsListString' => __('general.payments-list'),
+            'monthsArray' => auth()->user()->locale == 'he' ? config('settings.months.hebrew') : config('settings.months.english'),
+            'paidThisYear' => __('general.paidThisYear')
+        ]);
 
         return view('types.show', compact('type'));
     }
@@ -92,7 +101,7 @@ class TypeController extends Controller
         $chartData = $this->buildChartData($type, request()->year);
         $typeActivitiesList = $type->activity()->get();
         if (request()->expectsJson()) {
-            return ["amounts" => Arr::flatten($chartData), "nameOfChart" => $type->name, 'typeActivitiesList' => $typeActivitiesList, 'type' => $type];
+            return ["amounts" => Arr::flatten($chartData)];
         }
     }
 

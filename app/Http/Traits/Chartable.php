@@ -16,7 +16,13 @@ trait Chartable
 
         $paymentAmountArray = [];
         for ($i = 1; $i <= 12; $i++) {
-            $amount = Activity::where('type_id', $type->id)->where('user_id', Auth::user()->id)->whereMonth('paid_at', $i)->whereYear('paid_at', $year)->pluck('amount');
+
+            $amount = Activity::where('type_id', $type->id)
+                ->where('user_id', Auth::user()->id)
+                ->whereMonth('paid_at', $i)
+                ->whereYear('paid_at', $year)
+                ->pluck('amount');
+
             $noAmount = count($amount);
             $noAmount != 0 ? array_push($paymentAmountArray, $amount->sum()) : array_push($paymentAmountArray, $noAmount);
         }

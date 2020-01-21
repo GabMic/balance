@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-  בדיקת תשלומי   {{$type->name}}
+  Balance   {{$type->name}}
 @endsection
 
 @section('content')
@@ -13,6 +13,9 @@
                     <select id="selectDataYear">
                         <option value="2020">2020</option>
                         <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
                     </select>
                 </div>
                 <button class="button is-info is-outlined" onclick="displayNewDataOnChart()">{{__('general.bill-form-submit')}}</button>
@@ -52,8 +55,16 @@
             axios.put(`/types/${window.balance.type.id}`, {
                 typeId: window.balance.type.id,
                 year: value
-            }).then(({data}) =>{
-                myChart.data.datasets[0].data = data.amounts;
+            }).then(({data}) => {
+                let response = {
+                    label: `{{__('general.for')}} ${value}`,
+                    data: data.amounts,
+                    fill: false,
+                    backgroundColor: 'rgb(0,247,255)',
+                    borderColor: 'rgb(0,0,0)',
+                    borderWidth: 1
+                };
+                myChart.data.datasets.push(response);
                 myChart.update();
             })
         }

@@ -5,7 +5,7 @@
                 <task :task="task" :place="index"></task>
             </div>
         </div>
-        <h4 class="title is-4" v-if="notes.length==0">לא נוספו פתקים בינתיים</h4>
+        <h4 class="title is-4" v-if="notes.length==0" v-text="noNotes"></h4>
     </section>
 </template>
 <script>
@@ -16,7 +16,8 @@
 
         data() {
             return {
-                notes: this.tasks
+                notes: this.tasks,
+                noNotes: balance.emptyNotes
             }
         },
 

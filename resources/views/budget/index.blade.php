@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="columns m-1">
+    <div class="columns is-centered m-1">
         <div class="column is-4">
             <h5 class="subtitle is-5">{{__('general.set-new-budget-for')}} <b>{{$month}}</b></h5>
             <hr>

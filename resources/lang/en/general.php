@@ -47,5 +47,7 @@ return [
     'no-notes' => 'No notes were added yet.',
     'display-data-for-another-year' => 'Display data for another year',
     'for' => 'for',
-    'note-deleted' => 'Note Deleted'
+    'note-deleted' => 'Note Deleted',
+    'payments-list' => 'Payments This Month',
+    'paidThisYear' => 'Current Year Payments'
 ];

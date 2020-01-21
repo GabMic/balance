@@ -1,4 +1,4 @@
-# `Balance - A Laravel finance app for everyday use.`
+# Balance - A Laravel finance app for everyday use.
 
 Ever wondered at the end of the month why you are short 300 bucks?
 

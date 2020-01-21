@@ -46,5 +46,7 @@ return [
     'no-notes' => 'לא נוספו פתקים בינתיים',
     'display-data-for-another-year'=>'בחירת נתוני תשלום עבור שנה אחרת',
     'for' => 'עבור ',
-    'note-deleted' => 'הפתק נמחק'
+    'note-deleted' => 'הפתק נמחק',
+    'payments-list' => 'פירוט תשלומים לחודש הנוכחי',
+    'paidThisYear' => 'תשלומים אשר שולמו בשנה הנכחית'
 ];
