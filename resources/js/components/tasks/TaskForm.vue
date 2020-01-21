@@ -4,15 +4,15 @@
     <div class="card-content">
         <div class="field">
             <div class="control">
-                <textarea class="textarea is-info" placeholder="מה צריך לעשות?" name="content" v-model="content"></textarea>
+                <textarea class="textarea is-info" :placeholder="contentPlaceholder" name="content" v-model="content"></textarea>
             </div>
         </div>
-        <b-field  label="לאיזה נושא זה קשור?">
-            <b-select aria-placeholder="בחרו נושא" placeholder="בחרו נושא" class="rtl" name="type_id" id="type">
+        <b-field  :label="relates">
+            <b-select :aria-placeholder="pick" :placeholder="pick"  name="type_id" id="type" :style="way">
                 <option v-for="(type, index) in types" :key="index" :value="type.id">{{type.name}}</option>
             </b-select>
         </b-field>
-        <button class="button is-fullwidth is-outlined is-info" @click="save">שלח</button>
+        <a class="button is-fullwidth is-outlined is-info" @click="save" v-text="send"></a>
     </div>
 </div>
 </section>
@@ -27,6 +27,11 @@
         data(){
             return{
                 content: '',
+                contentPlaceholder: balance.needsToBeDone,
+                relates: balance.relatesTo,
+                pick: balance.choose,
+                way: balance.dire,
+                send: balance.add
             }
         },
 
@@ -55,10 +60,3 @@
 
     }
 </script>
-
-
-<style scoped>
-    .rtl{
-        text-align: right;
-    }
-</style>

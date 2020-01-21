@@ -14,8 +14,9 @@
 
         methods:{
             flash(message) {
-                this.$buefy.snackbar.open({
+                this.$buefy.toast.open({
                     duration: 3000,
+                    type: 'is-success',
                     message: message,
                     position: 'is-bottom-right',
                     actionText: null,

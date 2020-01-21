@@ -49,5 +49,8 @@ return [
     'for' => 'for',
     'note-deleted' => 'Note Deleted',
     'payments-list' => 'Payments This Month',
-    'paidThisYear' => 'Current Year Payments'
+    'paidThisYear' => 'Current Year Payments',
+    'relates-to' => 'This relates to',
+    'needs-to-be-done' => 'What needs to be done?',
+    'choose' => 'Choose one'
 ];
