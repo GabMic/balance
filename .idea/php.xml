@@ -97,6 +97,7 @@
       <path value="$PROJECT_DIR$/vendor/sinergi/browser-detector" />
       <path value="$PROJECT_DIR$/vendor/consoletvs/identify" />
       <path value="$PROJECT_DIR$/vendor/akaunting/language" />
+      <path value="$PROJECT_DIR$/vendor/coderello/laravel-populated-factory" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />

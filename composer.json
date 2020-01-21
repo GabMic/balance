@@ -10,6 +10,7 @@
     "require": {
         "php": "^7.2",
         "akaunting/language": "^1.0",
+        "coderello/laravel-populated-factory": "^0.2.0",
         "doctrine/dbal": "^2.10",
         "fideloper/proxy": "^4.0",
         "laracasts/utilities": "^3.0",

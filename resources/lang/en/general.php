@@ -51,5 +51,6 @@ return [
     'paidThisYear' => 'Current Year Payments',
     'relates-to' => 'This relates to',
     'needs-to-be-done' => 'What needs to be done?',
-    'choose' => 'Choose one'
+    'choose' => 'Choose one',
+    'budget-left' => 'You h'
 ];

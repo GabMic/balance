@@ -37,7 +37,7 @@ class AppServiceProvider extends ServiceProvider
                 'relatesTo' => __('general.relates-to'),
                 'needsToBeDone' => __('general.needs-to-be-done'),
                 'choose'=> __('general.choose'),
-                'dire' => auth()->user()->locale == 'he' ? 'text-align: right;' : 'text-align: left;',
+                'dire' => auth()->check() && auth()->user()->locale == 'he' ? 'text-align: right;' : 'text-align: left;',
                 'add' => __('general.bill-form-submit')
             ]);
 
