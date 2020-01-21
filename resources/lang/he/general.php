@@ -4,7 +4,7 @@ return [
     'budget' => 'התקציב שלי',
     'open-notes' => 'פתקים פתוחים',
     'total-paid-this-month' => 'סך תשלומים לחודש',
-    'add-a-note' => 'הוספת פתק',
+    'add-a-note' => '+ פתק',
     'my-notes' => 'הפתקים שלי',
     'new-activity' => 'פעילות חדשה +',
     'new-tag' => 'תגית חדשה +',
