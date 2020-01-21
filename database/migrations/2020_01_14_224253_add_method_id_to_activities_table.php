@@ -26,7 +26,7 @@ class AddMethodIdToActivitiesTable extends Migration
     public function down()
     {
         Schema::table('activities', function (Blueprint $table) {
-            //
+            $table->dropColumn('method_id');
         });
     }
 }

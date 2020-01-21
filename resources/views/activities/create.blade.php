@@ -31,7 +31,7 @@
             <b-field label="{{__('general.payment-method')}}">
                 <b-select placeholder="{{__('general.payment-method')}}" name="method_id" style="text-align: {{auth()->check() && auth()->user()->locale == 'he' ? 'right' : 'left'}}">
                     @forelse($globalBalanceData['methods'] as $method)
-                        <option value="{{$method->id}}">{{ $method->type }}</option>
+                        <option value="{{$method->id}}">{{ auth()->check() && auth()->user()->locale == 'he' ? $method->type : $method->english_type }}</option>
                     @empty
                         <option>{{__('general.problem-with-methods')}}</option>
                     @endforelse

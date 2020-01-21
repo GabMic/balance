@@ -26,7 +26,7 @@ class AddUserIdToTypesTable extends Migration
     public function down()
     {
         Schema::table('types', function (Blueprint $table) {
-            //
+            $table->dropColumn('user_id');
         });
     }
 }
