@@ -14,7 +14,7 @@ If you are not a developer or does not know how to use this on your own, you can
 
 Otherwise, it's a standard laravel installation.
 
-##Installation
+## Installation
 
 1. Clone or download this repo.
 2. Set up your database.
