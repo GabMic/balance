@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','איפוס סיסמה')
+@section('title','Reset Password')
 @section('css')
     <style>
         .hero.is-success {
@@ -38,16 +38,16 @@
             <div class="container has-text-centered">
                 <div class="columns is-centered">
                     <div class="column is-4">
-                        <h3 class="title has-text-grey">איפוס סיסמה</h3>
+                        <h3 class="title has-text-grey">Reset Password</h3>
                         <div class="box">
                             <figure class="avatar">
                                 <img src="{{asset('storage/icons/reset.png')}}">
                             </figure>
-                            <form class="login-form" method="POST" action="{{ route('password.update', app()->getLocale()) }}">
+                            <form class="login-form" method="POST" action="{{ route('password.update') }}">
                                 @csrf
                                 <div class="field">
                                     <div class="control">
-                                        <input class="input is-large" type="email" name="email" id="email" placeholder="דואר אלקטרוני"  value="{{ old('email') }}">
+                                        <input class="input is-large" type="email" name="email" id="email" placeholder="E-Mail"  value="{{ old('email') }}">
                                     </div>
                                     @if ($errors->has('email'))
                                         <p class="help is-danger">
@@ -58,7 +58,7 @@
 
                                 <div class="field">
                                     <div class="control">
-                                        <input class="input is-large" id="password" autocomplete="on" type="password" placeholder="סיסמה"  name="password">
+                                        <input class="input is-large" id="password" autocomplete="on" type="password" placeholder="Password"  name="password">
                                     </div>
                                     @if ($errors->has('password'))
                                         <p class="help is-danger">
@@ -68,10 +68,10 @@
                                 </div>
                                 <div class="field">
                                     <div class="control">
-                                        <input class="input is-large" id="password-confirm" autocomplete="on" type="password" placeholder="אימות סיסמה"  name="password_confirmation">
+                                        <input class="input is-large" id="password-confirm" autocomplete="on" type="password" placeholder="Confirm Password"  name="password_confirmation">
                                     </div>
                                 </div>
-                                <button class="button is-block is-info is-large is-fullwidth" type="submit">איפוס</button>
+                                <button class="button is-block is-info is-large is-fullwidth" type="submit">RESET</button>
                             </form>
                         </div>
                     </div>

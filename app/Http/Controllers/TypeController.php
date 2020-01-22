@@ -30,6 +30,11 @@ class TypeController extends Controller
      */
     public function index()
     {
+        $types = Type::with('activity')->get();
+        $sums = [];
+        $types->each(function($type){
+            dd($type->activity->whereMonth('paid_at', '02')->sum('amount'), $type->name);
+        });
 
     }
 

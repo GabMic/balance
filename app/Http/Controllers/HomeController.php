@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Response;
 use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\Auth;
 use JavaScript;
 
 class HomeController extends Controller
@@ -17,7 +16,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        Auth::check() ? $tasks = Auth::user()->task() : $tasks = null;
+        auth()->check() ? $tasks = auth()->user()->task() : $tasks = null;
         $month = Carbon::now()->monthName;
         $currentMonthBudget = auth()->check() && auth()->user()->budget() ? auth()->user()->budget() : '1';
         $totalExpensesThisMonth = auth()->check() && auth()->user()->activity() ? auth()->user()->activity() : '1';

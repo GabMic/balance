@@ -3,7 +3,6 @@
 
 @section('content')
 @include('partials.overview')
-
 @auth
 <section class="section m-0">
     <div class="columns is-centered m-1">
