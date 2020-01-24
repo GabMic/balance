@@ -30,7 +30,7 @@ class ActivityPolicy
      */
     public function view(User $user, Activity $activity)
     {
-        return $user->id === $activity->user_id;
+        return $user->id == $activity->user_id;
     }
 
     /**

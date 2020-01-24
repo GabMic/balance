@@ -30,7 +30,7 @@ class TypePolicy
      */
     public function view(User $user, Type $type)
     {
-        return $user->id === $type->user_id;
+        return $user->id == $type->user_id;
     }
 
     /**

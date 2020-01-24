@@ -28,7 +28,3 @@ Route::group(['middleware' => 'language'], function () {
     });
 
 });
-
-Route::post('download/{photo}', function (){
-    dd(request('photo'));
-});
