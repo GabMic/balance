@@ -58,7 +58,7 @@ class ActivityController extends Controller
             'method_id' => 'required'
         ]);
 
-        $image = UploadImage::upload($request->file('image'));
+        $request->file('image') ? $image = UploadImage::upload($request->file('image')): $image = '';
 
         Activity::create(["user_id" => Auth::user()->id, 'image' => $image] + $attributes);
 
