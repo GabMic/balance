@@ -34,8 +34,9 @@ class AppServiceProvider extends ServiceProvider
         View::composer('*', function ($view) {
 
             $loggedIn = auth()->check();
-            $authenticatable = auth()->user();
-            $locale = $loggedIn && $authenticatable->locale;
+            $user = auth()->user();
+            $locale = $loggedIn && $user->locale == 'he';
+
             JavaScript::put([
                 'relatesTo' => __('general.relates-to'),
                 'needsToBeDone' => __('general.needs-to-be-done'),
@@ -44,10 +45,10 @@ class AppServiceProvider extends ServiceProvider
                 'add' => __('general.bill-form-submit')
             ]);
 
-            $types = $loggedIn ? $authenticatable->type()->orderBy('name', 'asc')->get() : "nothing";
             $methods = Method::all(['id', 'type', 'english_type']);
-            $globalAppBudget = $loggedIn && $authenticatable->budget() ? $authenticatable->budget(): "--";
-            $globalAppActivity = $loggedIn && $authenticatable->activity() ? $authenticatable->activity() : "--";
+            $types = $loggedIn ? $user->type()->orderBy('name', 'asc')->get() : "nothing";
+            $globalAppBudget = $loggedIn && $user->budget() ? $user->budget(): "--";
+            $globalAppActivity = $loggedIn && $user->activity() ? $user->activity() : "--";
             $globalBalanceData = ['types' => $types, 'globalAppBudget' => $globalAppBudget, 'globalAppActivity' => $globalAppActivity, 'methods' => $methods, 'locale' => $locale];
             $view->with('globalBalanceData', $globalBalanceData);
         });

@@ -1,6 +1,6 @@
 <template>
     <section>
-        <h5 class="title is-5" v-text="paymentsList"></h5>
+        <h5 class="title is-5" >{{translations.title}}</h5>
         <b-collapse
             class="card"
             v-for="(collapse, index) of collapses"
@@ -13,7 +13,7 @@
                 class="card-header"
                 role="button">
                 <p class="card-header-title">
-                    סכום: {{ collapse.amount }} ש"ח
+                    {{translations.amount}} {{ collapse.amount }} {{translations.currency}}
                 </p>
                 <a class="card-header-icon">
                     <b-icon
@@ -23,13 +23,15 @@
             </div>
             <div class="card-content">
                 <div class="content">
-                    מידע נוסף: {{ collapse.info }}
+                    {{translations.info}} {{ collapse.info }}
                     <hr>
-                    מספר אישור תשלום: {{collapse.confirmation}}
+                    {{translations.confirmation}} {{collapse.confirmation}}
                     <hr>
-                    עבור חשבונית מספר: {{collapse.bill_id}}
+                    {{translations.bill_number}} {{collapse.bill_id}}
                     <hr>
-                    שולם בתאריך: {{collapse.paid_at}}
+                    {{translations.paid_at}} {{collapse.paid_at}}
+                    <hr>
+                    <a :href="`/activities/${collapse.id}`">{{translations.show_activity}}</a>
                 </div>
             </div>
         </b-collapse>
@@ -43,7 +45,8 @@
             return {
                 isOpen: 0,
                 collapses: [],
-                paymentsList: window.balance.paymentsListString
+                translations: window.balance.paymentsListTranslations,
+
             }
         },
 

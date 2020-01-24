@@ -47,9 +47,21 @@ return [
     'display-data-for-another-year'=>'בחירת נתוני תשלום עבור שנה אחרת',
     'for' => 'עבור ',
     'note-deleted' => 'הפתק נמחק',
-    'payments-list' => 'פירוט תשלומים לחודש הנוכחי',
+    'payments-list' => [
+        'title' => 'פירוט תשלומים החודש',
+        'info' => 'מידע נוסף: ',
+        'bill_number' => 'מספר חשבונית: ',
+        'confirmation' => 'מספר אישור תשלום: ',
+        'paid_at' => 'תאריך תשלום: ',
+        'amount' => 'סכום תשלום: ',
+        'currency' => 'ש"ח',
+        'show_activity' => 'צפייה בפעילות הזו'
+    ],
     'paidThisYear' => 'תשלומים אשר שולמו בשנה הנכחית',
     'relates-to' => 'לאיזה נושא זה קשור?',
     'needs-to-be-done' => 'מה צריך לזכור?',
-    'choose' => 'בחרו נושא'
+    'choose' => 'בחרו נושא',
+    'activity-meta-title' => 'צפייה בפירוט תשלום',
+    'click-to-download' => 'לחצו על התמונה כדי להוריד אותה.',
+    'activity-overview' => 'פירוט פעילות'
 ];

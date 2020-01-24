@@ -6,11 +6,13 @@ use App\Activity;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use App\Http\Traits\UploadImage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Contracts\View\Factory;
 
 class ActivityController extends Controller
 {
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -56,11 +58,9 @@ class ActivityController extends Controller
             'method_id' => 'required'
         ]);
 
-        $uploadedFile = $request->file('image');
-        $path = $uploadedFile->storeAs('bills/'. auth()->user()->id, $uploadedFile->getClientOriginalName());
+        $image = UploadImage::upload($request->file('image'));
 
-
-        Activity::create(["user_id" => Auth::user()->id, 'image' => $path] + $attributes);
+        Activity::create(["user_id" => Auth::user()->id, 'image' => $image] + $attributes);
 
         return back();
     }
@@ -69,11 +69,13 @@ class ActivityController extends Controller
      * Display the specified resource.
      *
      * @param Activity $activity
-     * @return Response
+     * @return Factory|View
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function show(Activity $activity)
     {
-        //
+        $this->authorize('view', $activity);
+        return view('activities.show', compact('activity'));
     }
 
     /**

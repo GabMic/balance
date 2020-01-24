@@ -60,8 +60,8 @@
                     label: `{{__('general.for')}} ${value}`,
                     data: data.amounts,
                     fill: false,
-                    backgroundColor: 'rgb(0,247,255)',
-                    borderColor: 'rgb(0,0,0)',
+                    backgroundColor: 'rgb(0,0,0)',
+                    borderColor: 'rgb(255,0,61)',
                     borderWidth: 1
                 };
                 myChart.data.datasets.push(response);

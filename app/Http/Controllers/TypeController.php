@@ -30,11 +30,13 @@ class TypeController extends Controller
      */
     public function index()
     {
-        $types = Type::with('activity')->get();
-        $sums = [];
-        $types->each(function($type){
-            dd($type->activity->whereMonth('paid_at', '02')->sum('amount'), $type->name);
-        });
+//        $types = Type::with('activity')->get();
+//        $sums = [];
+//        $types->each(function($type){
+//            dd($type->activity->whereMonth('paid_at', '02')->sum('amount'), $type->name);
+//        });
+
+        return "This page is being built.";
 
     }
 
@@ -66,9 +68,17 @@ class TypeController extends Controller
         return back();
     }
 
-
+    /**
+     * Display the specified resource.
+     *
+     * @param  Type $type
+     * @return Factory|View
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
     public function show(Type $type)
     {
+        $this->authorize('view', $type);
+
         list($year, $month) = $this->date();
 
         $chartData = $this->buildChartData($type, $year);
@@ -80,10 +90,11 @@ class TypeController extends Controller
             "nameOfChart" => $type->name,
             'typeActivitiesList' => $currentMonthTypeActivitiesList,
             'type' => $type,
-            'paymentsListString' => __('general.payments-list'),
+            'paymentsListTranslations' => __('general.payments-list'),
             'monthsArray' => auth()->user()->locale == 'he' ? config('settings.months.hebrew') : config('settings.months.english'),
             'paidThisYear' => __('general.paidThisYear')
         ]);
+
 
         return view('types.show', compact('type'));
     }
@@ -104,7 +115,6 @@ class TypeController extends Controller
     {
         $type = Type::find($typeId);
         $chartData = $this->buildChartData($type, request()->year);
-        $typeActivitiesList = $type->activity()->get();
         if (request()->expectsJson()) {
             return ["amounts" => Arr::flatten($chartData)];
         }

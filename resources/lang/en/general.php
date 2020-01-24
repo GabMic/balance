@@ -47,10 +47,22 @@ return [
     'display-data-for-another-year' => 'Display data for another year',
     'for' => 'for',
     'note-deleted' => 'Note Deleted',
-    'payments-list' => 'Payments This Month',
+    'payments-list' => [
+        'title' => 'Payments This Month',
+        'info' => 'Info: ',
+        'bill_number' => 'Bill Number: ',
+        'confirmation' => 'Confirmation Number: ',
+        'paid_at' => 'Paid At: ',
+        'amount' => 'Amount: ',
+        'currency' => '$',
+        'show_activity' => 'Show Activity'
+    ],
     'paidThisYear' => 'Current Year Payments',
     'relates-to' => 'This relates to',
     'needs-to-be-done' => 'What needs to be done?',
     'choose' => 'Choose one',
-    'budget-left' => 'You h'
+    'budget-left' => 'You have',
+    'activity-meta-title' => 'Payment Details',
+    'click-to-download' => 'Click the image to download it.',
+    'activity-overview' => 'Activity Overview'
 ];
