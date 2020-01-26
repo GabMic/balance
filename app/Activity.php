@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Stevebauman\Purify\Facades\Purify;
 
 
 class Activity extends Model
@@ -23,4 +24,13 @@ class Activity extends Model
     {
         return $this->belongsTo(Method::class);
     }
+
+    /**
+     * @return array
+     */
+    public function getAttributes(): array
+    {
+        return Purify::clean($this->attributes);
+    }
+
 }

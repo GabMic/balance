@@ -4,6 +4,7 @@ namespace App;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Stevebauman\Purify\Facades\Purify;
 
 
 class Type extends Model
@@ -24,5 +25,14 @@ class Type extends Model
     {
         return $this->belongsTo(Information::class);
     }
+
+    /**
+     * @return array
+     */
+    public function getAttributes(): array
+    {
+        return Purify::clean($this->attributes);
+    }
+
 
 }
