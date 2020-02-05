@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => 'language'], function () {
 
-    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/', 'HomeController')->name('home');
 
     Route::resource('types', 'TypeController');
 
@@ -19,6 +19,8 @@ Route::group(['middleware' => 'language'], function () {
     Route::get('/test', 'ChartDataController@today');
 
     Auth::routes();
+
+    Route::view('/setup', 'setup')->middleware('auth');
 
     Route::post('/language/{lang}', function (){
         DB::table('users')

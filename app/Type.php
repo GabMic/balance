@@ -4,6 +4,7 @@ namespace App;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 use Stevebauman\Purify\Facades\Purify;
 
 
@@ -11,14 +12,22 @@ class Type extends Model
 {
     protected $fillable = ['name', 'consumer_number', 'user_id'];
 
-    public function activity($month = "01", $year = '2020')
+
+    public function activity()
     {
-        return $this->hasMany(Activity::class)->where('user_id', auth()->user()->id)->whereMonth('paid_at', $month)->whereYear('paid_at', $year);
+        $this->month = Carbon::now()->month;
+        $this->year = Carbon::now()->year;
+        return $this->hasMany(Activity::class)
+            ->where('user_id', Auth::id())
+            ->whereMonth('paid_at', $this->month)
+            ->whereYear('paid_at', $this->year);
     }
 
-    public function task()
+    public function tasks()
     {
-        return $this->hasMany(Task::class)->where('done', 0)->where('user_id', auth()->user()->id);
+        return $this->hasMany(Task::class)
+            ->where('done', 0)
+            ->where('user_id', Auth::id());
     }
 
     public function information()
@@ -28,6 +37,8 @@ class Type extends Model
 
     /**
      * @return array
+     *
+     * This purify the data received from the user.
      */
     public function getAttributes(): array
     {

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Response;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 use JavaScript;
 
 class HomeController extends Controller
@@ -12,16 +13,26 @@ class HomeController extends Controller
     /**
      * Show the application dashboard.
      *
-     * @return Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function index()
+    public function __invoke()
     {
-        auth()->check() ? $tasks = auth()->user()->task() : $tasks = null;
-        $month = Carbon::now()->monthName;
-        $currentMonthBudget = auth()->check() && auth()->user()->budget() ? auth()->user()->budget() : '1';
-        $totalExpensesThisMonth = auth()->check() && auth()->user()->activity() ? auth()->user()->activity() : '1';
-        $budgetStatus = number_format(($totalExpensesThisMonth / $currentMonthBudget) * 100);
         JavaScript::put(['emptyNotes' => __('general.no-notes')]);
-        return view('home', compact('tasks', 'month', 'budgetStatus', 'currentMonthBudget', 'totalExpensesThisMonth'));
+
+        if(Auth::check()){
+            $user = Auth::user();
+            $currentMonthBudget = Auth::user()->budget();
+            $totalExpensesThisMonth = Auth::user()->activity();
+            $budgetStatus =($totalExpensesThisMonth / $currentMonthBudget)* 100;
+//            dd($currentMonthBudget, $totalExpensesThisMonth, $budgetStatus);
+            return view('home', compact('user', 'budgetStatus', 'currentMonthBudget', 'totalExpensesThisMonth'));
+        }else{
+            $tasks = null;
+            $currentMonthBudget = null;
+            $totalExpensesThisMonth = null;
+            $budgetStatus = null;
+            return view('home', compact('tasks', 'budgetStatus', 'currentMonthBudget', 'totalExpensesThisMonth'));
+
+        }
     }
 }

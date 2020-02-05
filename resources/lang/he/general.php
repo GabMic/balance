@@ -45,6 +45,7 @@ return [
     'things-to-remember-about-tag' => 'דברים לזכור לגבי התגית ',
     'no-notes' => 'לא נוספו פתקים בינתיים',
     'display-data-for-another-year'=>'בחירת נתוני תשלום עבור שנה אחרת',
+    'fix-errors-in-form' => 'תקנו את השגיאות בטופס ושלחו שוב.',
     'for' => 'עבור ',
     'note-deleted' => 'הפתק נמחק',
     'payments-list' => [
@@ -63,5 +64,22 @@ return [
     'choose' => 'בחרו נושא',
     'activity-meta-title' => 'צפייה בפירוט תשלום',
     'click-to-download' => 'לחצו על התמונה כדי להוריד אותה.',
-    'activity-overview' => 'פירוט פעילות'
+    'activity-overview' => 'פירוט פעילות',
+    'over-draft' => 'חריגה של ',
+    'over-draft-which-are' => 'שהם ',
+    'optional-activity-form-inputs'=>'שדות אופציונאליים',
+
+    "setup-new-user" => [
+        'welcome-title' => 'ברוכים הבאים ל-Balance!',
+        'welcome-info' => 'בואו נתחיל להכין את החשבון בפעם הראשונה.',
+        'finish-setup' => 'סיום',
+        'tags'=>[
+            'title'=> 'תגיות',
+            'info'=>'תגיות הן בעצם סוגי תשלום. כגון חשמל, מים, קניות במכולת וכו'
+        ],
+        'budget' => [
+            'title'=> 'תקציב',
+            'info'=>'התקציב הוא למעשה הסכום שתרצו לעמוד בו כל חודש. על פיו יחושב אחוזי ההוצאות וכו. ניתן לעדכון.'
+        ]
+    ]
 ];

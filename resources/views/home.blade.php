@@ -9,7 +9,7 @@
 
         <div class="column is-6">
             <h3 class="title is-3">{{__('general.my-notes')}}</h3>
-                <tasks :tasks="{{$tasks}}"></tasks>
+                <tasks :tasks="{{$user->tasks()}}"></tasks>
         </div>
     </div>
 </section>

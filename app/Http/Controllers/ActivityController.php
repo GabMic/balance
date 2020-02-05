@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Activity;
+use App\Method;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Traits\UploadImage;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\StoreActivity;
 use Illuminate\Contracts\View\Factory;
+use JavaScript;
 
 class ActivityController extends Controller
 {
@@ -35,32 +38,24 @@ class ActivityController extends Controller
      */
     public function create()
     {
-
-        return view('activities.create');
+        $methods = Method::all(['id', 'type', 'english_type']);
+        $types = Auth::user()->type()->orderBy('name', 'asc')->get();
+        return view('activities.create', compact('methods', 'types'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param Request $request
-     * @return Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(StoreActivity $request)
     {
-
-        $attributes = $request->validate([
-            'type_id' => 'required',
-            'paid_at' => 'required',
-            'amount' => 'required',
-            'confirmation' => 'required',
-            'info' => 'required',
-            'bill_id' => 'required',
-            'method_id' => 'required'
-        ]);
-
         $request->file('image') ? $image = UploadImage::upload($request->file('image')): $image = '';
 
-        Activity::create(["user_id" => Auth::user()->id, 'image' => $image] + $attributes);
+        $attributes = $request->validated();
+
+        Activity::create(["user_id" => Auth::id()] + $attributes + ['image' => $image]);
 
         return back();
     }

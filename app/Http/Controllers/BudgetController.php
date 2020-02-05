@@ -51,7 +51,7 @@ class BudgetController extends Controller
      */
     public function store(Request $request)
     {
-        $attr = $request->validate(['budget' => 'required']);
+        $attr = $request->validate(['budget' => 'required|numeric|min:1|max:1000000']);
         Budget::create($attr + ['user_id' => Auth::user()->id]);
         return back();
     }

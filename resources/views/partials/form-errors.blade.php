@@ -1,4 +1,5 @@
-<div class="card">
+@if($errors->any())
+    <div class="card">
     <div class="card-header">
         <div class="card-header-title">{{__('general.form-errors')}}</div>
     </div>
@@ -10,3 +11,4 @@
         @endforeach
     </div>
 </div>
+@endif

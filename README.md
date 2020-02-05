@@ -1,5 +1,5 @@
 # Balance - A Laravel finance app for everyday use.
-
+######_While all functionality works, This app is under heavy development, and constantly changing at this stage. consider it `Beta testing`._
 Ever wondered at the end of the month why you are short 300 bucks?
 
 Well, you didn't remember the milk, eggs and bread you brought home a week ago, or that pizza you got when you were hungry and in a rush or the 50$ on gas last wednesday.
@@ -30,4 +30,3 @@ Otherwise, it's a standard laravel installation.
 12. And of course, run the app: `php artisan serve`.
 
 Enjoy keeping track of your money.
-

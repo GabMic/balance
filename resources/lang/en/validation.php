@@ -130,9 +130,21 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'amount' => [
+            'required' => 'You must write how much was paid.',
         ],
+        'budget' => [
+            'required' => 'You must write a budget, and it should be above Zero.',
+        ],
+        'type_id' => [
+            'required' => 'You must select the type of payment.'
+        ],
+        'paid_at' => [
+            'required' => 'You must select when it was paid.'
+        ],
+        'method_id' => [
+            'required' => 'You must select how it was paid.'
+        ]
     ],
 
     /*

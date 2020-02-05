@@ -19,7 +19,7 @@ return [
     'forgot-password' => 'Forgot Password',
     'remember-me' => 'Remember Me',
     'budget-after-expenses' => 'Remaining Budget',
-    'to-get-started' => 'To get Started',
+    'to-get-started' => 'To Get Started',
     'note-added' => 'Note Added Successfully',
     'no-tags-added' => 'No tags added yet. You will see them here after you will create them.',
     'for-month' => 'for',
@@ -57,6 +57,7 @@ return [
         'currency' => '$',
         'show_activity' => 'Show Activity'
     ],
+    'fix-errors-in-form' => 'FIX ERRORS ABOVE FIRST AND RE-SEND',
     'paidThisYear' => 'Current Year Payments',
     'relates-to' => 'This relates to',
     'needs-to-be-done' => 'What needs to be done?',
@@ -64,5 +65,22 @@ return [
     'budget-left' => 'You have',
     'activity-meta-title' => 'Payment Details',
     'click-to-download' => 'Click the image to download it.',
-    'activity-overview' => 'Activity Overview'
+    'activity-overview' => 'Activity Overview',
+    'over-draft' => 'Over Draft By ',
+    'over-draft-which-are' => 'Which Are ',
+    'optional-activity-form-inputs'=>'Optional Fields',
+
+    "setup-new-user" => [
+        'welcome-title' => 'Welcome To Balance!',
+        'welcome-info' => 'Let\'s Get You Set Up.',
+        'finish-setup' => 'Finish Setup',
+        'tags'=>[
+            'title'=> 'Tags',
+            'info'=>'Tags are basically types of bill payments. like Water, Electricity, Phones, Groceries Etc',
+        ],
+        'budget' => [
+            'title'=> 'Budget',
+            'info'=>'The budget is the amount of money you wish to hold every month. you can update this any time.'
+        ]
+    ]
 ];

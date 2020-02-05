@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-  Balance   {{$type->name}}
+  Balance - {{$type->name}}
 @endsection
 
 @section('content')
@@ -24,7 +24,7 @@
             <hr>
             <h6 class="title is-6">{{__('general.things-to-remember-about-tag')}}<b>{{$type->name}}</b> </h6>
             <div class="list" style="box-shadow: none; color: black; border-radius: 0">
-                @forelse($type->task as $task)
+                @forelse($type->tasks as $task)
                    <div class="list-item"> {{$task->content}}</div>
                     @empty
                         <h4 class="title is-4">{{__('general.no-notes')}}</h4>

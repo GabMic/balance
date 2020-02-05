@@ -2,19 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Traits\Chartable;
+
+
 use App\Type;
-use Carbon\Carbon;
-use Illuminate\Contracts\View\Factory;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use Illuminate\Support\Arr;
-use Illuminate\View\View;
 use JavaScript;
+use Carbon\Carbon;
+use Illuminate\View\View;
+use Illuminate\Support\Arr;
+use Illuminate\Http\Response;
+use App\Http\Traits\Chartable;
+use App\Http\Requests\StoreType;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Auth\Access\AuthorizationException;
 
 class TypeController extends Controller
 {
-    // TODO complete this model CRUD functions
 
     use Chartable;
 
@@ -26,24 +30,21 @@ class TypeController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return Response
+     * @return Factory|View
      */
     public function index()
     {
-//        $types = Type::with('activity')->get();
-//        $sums = [];
-//        $types->each(function($type){
-//            dd($type->activity->whereMonth('paid_at', '02')->sum('amount'), $type->name);
-//        });
+        $types = Type::with('activity')->get();
 
-        return "This page is being built.";
+
+        return view('types.index', compact('types'));
 
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return Response
+     * @return Factory|View
      */
     public function create()
     {
@@ -53,18 +54,15 @@ class TypeController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @param StoreType $request
+     * @return RedirectResponse
      */
-    public function store(Request $request)
+    public function store(StoreType $request)
     {
 
-        $attributes = $request->validate([
-            "name" => 'string|required',
-            "consumer_number" => 'numeric'
-        ]);
+        $attributes = $request->validated();
 
-        Type::create($attributes + ['user_id' => auth()->user()->id]);
+        Type::create($attributes + ['user_id' => Auth::id()]);
         return back();
     }
 
@@ -73,17 +71,16 @@ class TypeController extends Controller
      *
      * @param  Type $type
      * @return Factory|View
-     * @throws \Illuminate\Auth\Access\AuthorizationException
+     * @throws AuthorizationException
      */
     public function show(Type $type)
     {
+
+        $year = Carbon::now()->year;
+        $currentMonthTypeActivitiesList = $type->activity()->get();
         $this->authorize('view', $type);
 
-        list($year, $month) = $this->date();
-
         $chartData = $this->buildChartData($type, $year);
-
-        $currentMonthTypeActivitiesList = $type->activity($month, $year)->get();
 
         JavaScript::put([
             "amounts" => Arr::flatten($chartData),
@@ -91,7 +88,7 @@ class TypeController extends Controller
             'typeActivitiesList' => $currentMonthTypeActivitiesList,
             'type' => $type,
             'paymentsListTranslations' => __('general.payments-list'),
-            'monthsArray' => auth()->user()->locale == 'he' ? config('settings.months.hebrew') : config('settings.months.english'),
+            'monthsArray' => Auth::user()->locale == 'he' ? config('settings.months.hebrew') : config('settings.months.english'),
             'paidThisYear' => __('general.paidThisYear')
         ]);
 
@@ -103,7 +100,7 @@ class TypeController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param Type $type
-     * @return Response
+     * @return void
      */
     public function edit(Type $type)
     {
@@ -131,14 +128,4 @@ class TypeController extends Controller
 
     }
 
-    /**
-     * @return array
-     */
-    public function date(): array
-    {
-        $date = Carbon::now();
-        $year = request()->has('year') ? request()->year : $date->year;
-        $month = $date->month;
-        return array($year, $month);
-    }
 }

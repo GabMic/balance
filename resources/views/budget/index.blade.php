@@ -16,7 +16,7 @@
                 @csrf
                 <div class="field">
                     <div class="control">
-                        <input type="number" class="input @error('budget') is-danger @enderror" step="0.01" name="budget" placeholder="{{__('general.what-budget-would-you-like-to-hold')}}">
+                        <input type="number" class="input @error('budget') is-danger @enderror" step="0.01" min="1" name="budget" placeholder="{{__('general.what-budget-would-you-like-to-hold')}}">
                     </div>
                 </div>
                 <button class="button is-fullwidth is-success is-outlined">{{__('general.bill-form-submit')}}</button>

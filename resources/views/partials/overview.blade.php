@@ -2,6 +2,7 @@
     @guest
         @include('partials.register-or-login')
     @endguest
+     @auth
     <div class="tile is-ancestor">
         <div class="tile is-parent">
             <div class="card tile is-child">
@@ -10,7 +11,7 @@
                         <div class="level-item">
                             <div class="is-widget-label">
                                 <h5 class="subtitle is-5 is-spaced">{{__('general.budget')}} {{__('general.for-month')}} {{$month}}</h5>
-                                <h1 class="title is-1-mobile">{{$globalBalanceData['globalAppBudget']}}  {{__('general.currency')}}</h1>
+                                <h1 class="title is-1-mobile">{{$currentMonthBudget}}  {{__('general.currency')}}</h1>
                             </div>
                         </div>
                         <div class="level-item has-widget-icon">
@@ -30,7 +31,7 @@
                         <div class="level-item">
                             <div class="is-widget-label">
                                 <h5 class="subtitle is-5 is-spaced">@lang('general.total-paid-this-month') {{$month}}</h5>
-                                <h1 class="title is-1-mobile">{{$globalBalanceData['globalAppActivity']}} {{__('general.currency')}}</h1>
+                                <h1 class="title is-1-mobile">{{$totalExpensesThisMonth}} {{__('general.currency')}}</h1>
                             </div>
                         </div>
                         <div class="level-item has-widget-icon">
@@ -49,7 +50,7 @@
                         <div class="level-item">
                             <div class="is-widget-label">
                                 <h5 class="subtitle is-5 is-spaced">@lang('general.open-notes')</h5>
-                                <h1 class="title is-1-mobile">{{$tasks ? count($tasks) : 0}}</h1>
+                                <h1 class="title is-1-mobile">{{count($user->tasks())}}</h1>
                             </div>
                         </div>
                         <div class="level-item has-widget-icon">
@@ -61,7 +62,7 @@
             </div>
         </div>
     </div>
-        @auth
+
         <div class="tile is-ancestor">
             <div class="tile is-parent">
                 <div class="card tile is-child">
@@ -72,7 +73,7 @@
                                     <h5 class="subtitle is-5 is-spaced">{{__('general.budget-status')}}</h5>
                                   @if($budgetStatus > 100)
                                         <h1 class="title is-1-mobile" style="color: red">{{$budgetStatus}}% {{__('general.budget-used')}}</h1>
-                                        <p class="help is-danger">חריגה של {{$budgetStatus - 100}}% שהם {{$totalExpensesThisMonth - $currentMonthBudget}} {{__('general.currency')}}</p>
+                                        <p class="help is-danger">{{__('general.over-draft')}} {{$budgetStatus}}% {{__('general.over-draft-which-are')}} {{$totalExpensesThisMonth - $currentMonthBudget}} {{__('general.currency')}}</p>
                                       @elseif($budgetStatus < 100)
                                         <h1 class="title is-1-mobile" style="color: green">{{$budgetStatus}}% {{__('general.budget-used')}}</h1>
                                         <h6 class="help is-success"> <b>{{__('general.budget-after-expenses')}} {{$currentMonthBudget - $totalExpensesThisMonth}} {{__('general.currency')}}.</b></h6>
