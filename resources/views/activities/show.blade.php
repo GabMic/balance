@@ -21,7 +21,7 @@
                 {{__('general.payments-list.paid_at')}} {{$activity->paid_at}}
             </a>
             <a class="list-item">
-                {{__('general.payment-method')}}: {{$activity->method->type}}
+                {{__('general.payment-method')}}: {{auth()->user()->locale == 'he' ? $activity->method->type :$activity->method->english_type}}
             </a>
         </div>
     </div>

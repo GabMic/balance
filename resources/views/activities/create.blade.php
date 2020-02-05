@@ -72,7 +72,7 @@
             @if($errors->any())
             <p class="help is-danger">{{__('general.fix-errors-in-form')}}</p>
             @endif
-            <b-button onclick="this.classList.add('is-loading')" type="is-success is-fullwidth"  native-type="submit">{{__('general.bill-form-submit')}}</b-button>
+            <b-button onclick="this.classList.add('is-loading')" type="is-success is-fullwidth"  native-type="submit" style="margin-top: 1rem">{{__('general.bill-form-submit')}}</b-button>
         </form>
     </div>
 </div>
