@@ -28,6 +28,9 @@
                             <div class="navbar-item has-text-centered">
                                 <a  href="{{ route('budget.index') }}">{{__('general.budget')}}</a>
                             </div>
+                            <div class="navbar-item has-text-centered">
+                                <a  href="{{ route('types.index') }}">{{__('general.manage-types')}}</a>
+                            </div>
                             <a class="navbar-item subtitle is-5 has-text-centered" style="margin-bottom: 0;" href="{{ route('logout') }}"
                                onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                 {{__('general.logout')}}

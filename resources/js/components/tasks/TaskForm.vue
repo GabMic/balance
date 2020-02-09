@@ -8,7 +8,7 @@
             </div>
         </div>
         <b-field  :label="relates">
-            <b-select :aria-placeholder="pick" :placeholder="pick"  name="type_id" id="type" :style="way">
+            <b-select :aria-placeholder="pick" :placeholder="pick"  name="type_id" id="type" :style="flow">
                 <option v-for="(type, index) in types" :key="index" :value="type.id">{{type.name}}</option>
             </b-select>
         </b-field>
@@ -30,7 +30,7 @@
                 contentPlaceholder: balance.needsToBeDone,
                 relates: balance.relatesTo,
                 pick: balance.choose,
-                way: balance.dire,
+                flow: balance.direction,
                 send: balance.add
             }
         },

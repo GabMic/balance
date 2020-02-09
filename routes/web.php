@@ -22,6 +22,9 @@ Route::group(['middleware' => 'language'], function () {
 
     Route::view('/setup', 'setup')->middleware('auth');
 
+    Route::get('/fetch-data-table', 'DataTableController@index');
+    Route::get('/fetch-data-table-after-delete', 'DataTableController@fetchAfterDeletedType');
+
     Route::post('/language/{lang}', function (){
         DB::table('users')
             ->where('id', auth()->user()->id)

@@ -8,6 +8,7 @@ use Stevebauman\Purify\Facades\Purify;
 class Information extends Model
 {
     protected $guarded = [];
+
     /**
      * @return array
      */

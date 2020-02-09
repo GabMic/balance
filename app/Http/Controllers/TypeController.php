@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 
-
 use App\Type;
 use JavaScript;
 use Carbon\Carbon;
@@ -69,7 +68,7 @@ class TypeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  Type $type
+     * @param Type $type
      * @return Factory|View
      * @throws AuthorizationException
      */
@@ -125,6 +124,13 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
+
+        $type->delete();
+        if (request()->expectsJson()) {
+            return __('general.type-deleted');
+        }
+
+        return  __('general.problem-deleting-type');;
 
     }
 

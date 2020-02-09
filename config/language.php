@@ -31,7 +31,7 @@ return [
     | This option will add the language code to the redirected url
     |
     */
-    'url'          => false,
+    'url'          => true,
 
     /*
     |--------------------------------------------------------------------------

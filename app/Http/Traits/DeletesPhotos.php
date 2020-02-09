@@ -7,7 +7,8 @@ use Illuminate\Support\Facades\Storage;
 
 trait DeletesPhotos
 {
-    public static function delete($photo){
+    public static function delete($photo)
+    {
 
     }
 }

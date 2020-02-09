@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Activity;
 use App\Method;
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -46,12 +48,12 @@ class ActivityController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @param StoreActivity $request
+     * @return RedirectResponse
      */
     public function store(StoreActivity $request)
     {
-        $request->file('image') ? $image = UploadImage::upload($request->file('image')): $image = '';
+        $request->file('image') ? $image = UploadImage::upload($request->file('image')) : $image = '';
 
         $attributes = $request->validated();
 
@@ -65,7 +67,7 @@ class ActivityController extends Controller
      *
      * @param Activity $activity
      * @return Factory|View
-     * @throws \Illuminate\Auth\Access\AuthorizationException
+     * @throws AuthorizationException
      */
     public function show(Activity $activity)
     {
@@ -100,10 +102,13 @@ class ActivityController extends Controller
      * Remove the specified resource from storage.
      *
      * @param Activity $activity
-     * @return Response
+     * @return RedirectResponse|\Illuminate\Routing\Redirector
+     * @throws \Exception
      */
     public function destroy(Activity $activity)
     {
-        //
+        $activity->delete();
+        return redirect('/');
+
     }
 }

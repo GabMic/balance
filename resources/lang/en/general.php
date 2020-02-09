@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'types'=> 'Types',
     'budget' => 'My Budget',
     'open-notes' => 'Open Notes',
     'total-paid-this-month' => 'Total payments',
@@ -69,6 +70,15 @@ return [
     'over-draft' => 'Over Draft By ',
     'over-draft-which-are' => 'Which Are ',
     'optional-activity-form-inputs'=>'Optional Fields',
+    'problem-deleting-type'=> 'Problem deleting type.',
+    'type-deleted' => 'Type Deleted!',
+    'delete' => 'Delete',
+    'unCheck' =>'Un-Check Selected',
+    'delete-activity' => 'Delete Activity',
+    'manage-types' => 'Manage Types',
+
+    'problem-deleting activity'=> 'Problem deleting Activity.',
+    'activity-deleted' => 'Activity Deleted!',
 
     "setup-new-user" => [
         'welcome-title' => 'Welcome To Balance!',

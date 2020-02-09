@@ -41,12 +41,15 @@ class AppServiceProvider extends ServiceProvider
             JavaScript::put([
                 'relatesTo' => __('general.relates-to'),
                 'needsToBeDone' => __('general.needs-to-be-done'),
-                'choose'=> __('general.choose'),
-                'dire' => $locale == 'he' ? 'text-align: right;' : 'text-align: left;',
-                'add' => __('general.bill-form-submit')
+                'choose' => __('general.choose'),
+                'direction' => $locale == 'he' ? 'text-align: right;' : 'text-align: left;',
+                'add' => __('general.bill-form-submit'),
+                'type' => __('general.types'),
+                'delete'=>__('general.delete'),
+                'uncheck' => __('general.unCheck')
             ]);
             $types = $loggedIn ? $user->type()->orderBy('name', 'asc')->get() : "nothing";
-            $globalBalanceData = ['locale' => $locale, 'types'=>$types];
+            $globalBalanceData = ['locale' => $locale, 'types' => $types];
             $view->with('globalBalanceData', $globalBalanceData);
             $view->with('month', $month);
         });

@@ -8,6 +8,7 @@ use Stevebauman\Purify\Facades\Purify;
 class Task extends Model
 {
     protected $guarded = [];
+
     /**
      * @return array
      */

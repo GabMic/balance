@@ -46,7 +46,7 @@ class TaskController extends Controller
         $task = Task::create(['user_id' => Auth::user()->id] + $attr);
 
         if (request()->expectsJson()) {
-            return [$task, 'message'=>__('general.note-added')];
+            return [$task, 'message' => __('general.note-added')];
         }
         return back();
     }

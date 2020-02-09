@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'types'=> 'תגיות',
     'budget' => 'התקציב שלי',
     'open-notes' => 'פתקים פתוחים',
     'total-paid-this-month' => 'סך תשלומים לחודש',
@@ -68,6 +69,14 @@ return [
     'over-draft' => 'חריגה של ',
     'over-draft-which-are' => 'שהם ',
     'optional-activity-form-inputs'=>'שדות אופציונאליים',
+    'problem-deleting-type'=> 'הייתה בעיה במחיקת התגית.',
+    'type-deleted' => 'התגית נמחקה!',
+    'problem-deleting activity'=> 'הייתה בעיה במחיקת הפעילות.',
+    'activity-deleted' => 'הפעילות נמחקה!',
+    'delete' => 'מחיקה',
+    'unCheck' =>'ביטול בחירה',
+    'delete-activity' => 'מחיקת הפעילות',
+    'manage-types' => 'ניהול תגיות',
 
     "setup-new-user" => [
         'welcome-title' => 'ברוכים הבאים ל-Balance!',

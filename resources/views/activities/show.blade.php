@@ -24,6 +24,11 @@
                 {{__('general.payment-method')}}: {{auth()->user()->locale == 'he' ? $activity->method->type :$activity->method->english_type}}
             </a>
         </div>
+        <hr>
+        <form action="{{route('activities.destroy', $activity)}}" method="post">
+            @csrf @method('delete')
+            <button class="button is-danger is-outlined is-fullwidth">{{__('general.delete-activity')}}</button>
+        </form>
     </div>
     <div class="column is-5">
         <figure class="image is-3by2">

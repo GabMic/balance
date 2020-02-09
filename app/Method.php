@@ -8,6 +8,7 @@ use Stevebauman\Purify\Facades\Purify;
 class Method extends Model
 {
     protected $fillable = ['type', 'english_type'];
+
     /**
      * @return array
      */

@@ -11,6 +11,7 @@ import Task from "./components/tasks/Task";
 import Tasks from "./components/tasks/Tasks";
 import TaskForm from "./components/tasks/TaskForm";
 import TypeActivitiesList from "./components/TypeActivitiesList";
+import DataTable from "./components/DataTable";
 
 
 Vue.component('task', Task);
@@ -18,6 +19,9 @@ Vue.component('tasks', Tasks);
 Vue.component('flash', Flash);
 Vue.component('task-form', TaskForm);
 Vue.component('type-activities-list', TypeActivitiesList);
+Vue.component('data-table', DataTable);
+
+
 
 const app = new Vue({
     el: '#app'
