@@ -59,4 +59,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Task::class)->where('done', false)->get();
     }
+
+    public function isAdmin(){
+        return $this->admin;
+    }
 }
