@@ -73,7 +73,7 @@
                                     <h5 class="subtitle is-5 is-spaced">{{__('general.budget-status')}}</h5>
                                   @if($budgetStatus > 100)
                                         <h1 class="title is-1-mobile" style="color: red">{{$budgetStatus}}% {{__('general.budget-used')}}</h1>
-                                        <p class="help is-danger">{{__('general.over-draft')}} {{$budgetStatus}}% {{__('general.over-draft-which-are')}} {{$totalExpensesThisMonth - $currentMonthBudget}} {{__('general.currency')}}</p>
+                                        <p class="help is-danger">{{__('general.over-draft')}} {{$totalExpensesThisMonth - $currentMonthBudget}} {{__('general.currency')}}</p>
                                       @elseif($budgetStatus < 100)
                                         <h1 class="title is-1-mobile" style="color: green">{{$budgetStatus}}% {{__('general.budget-used')}}</h1>
                                         <h6 class="help is-success"> <b>{{__('general.budget-after-expenses')}} {{$currentMonthBudget - $totalExpensesThisMonth}} {{__('general.currency')}}.</b></h6>
