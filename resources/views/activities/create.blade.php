@@ -16,7 +16,7 @@
                 <div class="select">
                     <select placeholder="{{__('general.payment-type')}}"   name="type_id" style="text-align: {{auth()->user()->locale == 'he' ? 'right' : 'left'}}">
 
-                        @forelse($globalBalanceData['types'] as $type)
+                        @forelse($user->type as $type)
                             <option value="{{$type->id}}">{{ $type->name }}</option>
                         @empty
                             <option>{{__('general.no-tags-added')}}</option>

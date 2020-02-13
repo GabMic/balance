@@ -4,7 +4,9 @@ namespace App\Providers;
 
 use App\Method;
 use App\Type;
+use App\User;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -34,23 +36,22 @@ class AppServiceProvider extends ServiceProvider
 
         View::composer('*', function ($view) {
             $month = Carbon::now()->monthName;
-            $loggedIn = auth()->check();
-            $user = auth()->user();
-            $locale = $loggedIn && $user->locale == 'he';
+            $user = Auth::user();
 
             JavaScript::put([
                 'relatesTo' => __('general.relates-to'),
                 'needsToBeDone' => __('general.needs-to-be-done'),
                 'choose' => __('general.choose'),
-                'direction' => $locale == 'he' ? 'text-align: right;' : 'text-align: left;',
+                'direction' => Auth::check() && $user->locale  == 'he' ? 'text-align: right;' : 'text-align: left;',
                 'add' => __('general.bill-form-submit'),
                 'type' => __('general.types'),
                 'delete'=>__('general.delete'),
-                'uncheck' => __('general.unCheck')
+                'uncheck' => __('general.unCheck'),
+                'currency' => __('general.currency'),
+                'dailySpending' =>__('general.daily-spending'),
+                'todayActivities' =>__('general.todayActivities'),
             ]);
-            $types = $loggedIn ? $user->type()->orderBy('name', 'asc')->get() : "nothing";
-            $globalBalanceData = ['locale' => $locale, 'types' => $types];
-            $view->with('globalBalanceData', $globalBalanceData);
+            $view->with('user', $user);
             $view->with('month', $month);
         });
     }

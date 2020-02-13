@@ -77,7 +77,10 @@ return [
     'unCheck' =>'ביטול בחירה',
     'delete-activity' => 'מחיקת הפעילות',
     'manage-types' => 'ניהול תגיות',
-
+    'daily-spending' => 'הוצאות היום',
+    'todayActivities' => 'צפו בפעילויות של היום',
+    'number-of-activities-made-today' => ' פעילויות בוצעו היום עד לרגע זה',
+    'more-about-activity' => 'מידע נוסף על הפעילות הזו',
     "setup-new-user" => [
         'welcome-title' => 'ברוכים הבאים ל-Balance!',
         'welcome-info' => 'בואו נתחיל להכין את החשבון בפעם הראשונה.',

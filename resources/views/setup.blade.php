@@ -7,6 +7,16 @@
 @section('content')
     <div class="columns is-centered m-1">
         <div class="column is-8">
+
+            <section class="hero">
+                <div class="hero-body">
+                    <div class="container has-text-centered">
+                        <h2 class="subtitle">{{__('general.setup-new-user.welcome-title')}}</h2>
+                        <h1 class="title">{{__('general.setup-new-user.welcome-info')}}</h1>
+                    </div>
+                </div>
+            </section>
+
             <section class="section">
                 <div class="level is-mobile">
                     <div class="level-left">
@@ -22,14 +32,6 @@
                                 <img src="{{asset('/storage/icons/flags/us.png')}}" alt="English">
                             </a>
                         </div>
-                    </div>
-                </div>
-            </section>
-            <section class="hero">
-                <div class="hero-body">
-                    <div class="container has-text-centered">
-                        <h2 class="subtitle">{{__('general.setup-new-user.welcome-title')}}</h2>
-                        <h1 class="title">{{__('general.setup-new-user.welcome-info')}}</h1>
                     </div>
                 </div>
             </section>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Activity;
 use App\Method;
+use Carbon\Carbon;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
@@ -13,7 +14,6 @@ use App\Http\Traits\UploadImage;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreActivity;
 use Illuminate\Contracts\View\Factory;
-use JavaScript;
 
 class ActivityController extends Controller
 {
@@ -30,7 +30,9 @@ class ActivityController extends Controller
      */
     public function index()
     {
-        //
+        $day = request('day');
+        return Auth::user()->activityForToday($day)->pluck('amount')->sum();
+        //return view('activities.index');
     }
 
     /**
@@ -110,5 +112,11 @@ class ActivityController extends Controller
         $activity->delete();
         return redirect('/');
 
+    }
+
+    public function today(){
+        $day = Carbon::now()->day;
+        $activities = Auth::user()->activityForToday($day)->get();
+        return view('activities.today', compact('activities'));
     }
 }

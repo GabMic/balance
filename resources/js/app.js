@@ -13,10 +13,13 @@ import TaskForm from "./components/tasks/TaskForm";
 import TypeActivitiesList from "./components/TypeActivitiesList";
 import DataTable from "./components/DataTable";
 
+import Spending from './components/Spending';
+
 
 Vue.component('task', Task);
 Vue.component('tasks', Tasks);
 Vue.component('flash', Flash);
+Vue.component('spending', Spending);
 Vue.component('task-form', TaskForm);
 Vue.component('type-activities-list', TypeActivitiesList);
 Vue.component('data-table', DataTable);

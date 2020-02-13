@@ -13,7 +13,7 @@ class HomeController extends Controller
 {
 
     /**
-     * Show the application dashboard.
+     * Show the application homepage.
      *
      * @return Factory|View
      */
@@ -22,12 +22,10 @@ class HomeController extends Controller
         JavaScript::put(['emptyNotes' => __('general.no-notes')]);
 
         if (Auth::check()) {
-            $user = Auth::user();
-            $currentMonthBudget = Auth::user()->budget();
-            $totalExpensesThisMonth = Auth::user()->activity();
-            $budgetStatus = ($totalExpensesThisMonth / $currentMonthBudget) * 100;
-//            dd($currentMonthBudget, $totalExpensesThisMonth, $budgetStatus);
-            return view('home', compact('user', 'budgetStatus', 'currentMonthBudget', 'totalExpensesThisMonth'));
+            $currentMonthBudget = Auth::user()->budget()->whereMonth('created_at', Carbon::now()->month)->latest()->pluck('budget')->first();
+            $totalExpensesThisMonth = Auth::user()->activity()->whereMonth('paid_at', Carbon::now()->month)->sum('amount');
+            $budgetStatus = number_format(($totalExpensesThisMonth / $currentMonthBudget) * 100, 2);
+            return view('home', compact( 'budgetStatus', 'currentMonthBudget', 'totalExpensesThisMonth'));
         } else {
             $tasks = null;
             $currentMonthBudget = null;

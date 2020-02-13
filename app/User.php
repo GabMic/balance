@@ -6,11 +6,12 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
     use Notifiable;
+
+    protected $with = ['type', 'activity', 'tasks', 'budget'];
 
     /**
      * The attributes that are mass assignable.
@@ -42,7 +43,7 @@ class User extends Authenticatable
 
     public function activity()
     {
-        return $this->hasMany(Activity::class)->whereMonth('paid_at', Carbon::now()->month)->sum('amount');
+        return $this->hasMany(Activity::class);
     }
 
     public function type()
@@ -52,15 +53,20 @@ class User extends Authenticatable
 
     public function budget()
     {
-        return $this->hasMany(Budget::class)->whereMonth('created_at', Carbon::now()->month)->latest()->pluck('budget')->first();
+        return $this->hasMany(Budget::class);
     }
 
     public function tasks()
     {
-        return $this->hasMany(Task::class)->where('done', false)->get();
+        return $this->hasMany(Task::class);
     }
 
     public function isAdmin(){
         return $this->admin;
     }
+
+    public function activityForToday($day = null){
+        return $this->activity()->whereDay('paid_at', $day);
+    }
+
 }

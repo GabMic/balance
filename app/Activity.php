@@ -25,8 +25,11 @@ class Activity extends Model
         return $this->belongsTo(Method::class);
     }
 
+
     /**
      * @return array
+     *This  will purify all of the model attributes from scripts tags etc.
+     *
      */
     public function getAttributes(): array
     {

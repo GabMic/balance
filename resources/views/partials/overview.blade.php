@@ -50,7 +50,7 @@
                         <div class="level-item">
                             <div class="is-widget-label">
                                 <h5 class="subtitle is-5 is-spaced">@lang('general.open-notes')</h5>
-                                <h1 class="title is-1-mobile">{{count($user->tasks())}}</h1>
+                           <h1 class="title is-1-mobile">{{count($user->tasks)}}</h1>
                             </div>
                         </div>
                         <div class="level-item has-widget-icon">
@@ -83,6 +83,21 @@
                             <div class="level-item has-widget-icon">
                                 <div class="is-widget-icon">
                                     <span class="icon has-text-primary is-large"><i class="mdi mdi-percent-outline mdi-48px"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tile is-parent">
+                <div class="card tile is-child">
+                    <div class="card-content">
+                        <div class="level is-mobile">
+                            <spending></spending>
+                            <div class="level-item has-widget-icon">
+                                <div class="is-widget-icon" style="background: #0071ff; clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 71% 51%, 79% 87%, 40% 52%, 0 51%);">
+                                    <span class="icon is-large"><i class="mdi mdi-48px"></i></span>
                                 </div>
                             </div>
                         </div>

@@ -1,7 +1,7 @@
 @auth
     <div class="tabs is-centered is-small">
         <ul>
-            @forelse($globalBalanceData['types'] as $type)
+            @forelse($user->type as $type)
                 <li><a href="{{route('types.show',  $type)}}">{{$type->name}}</a></li>
                 @empty
                 <li>{{__('general.no-tags-added')}}</li>
@@ -23,6 +23,6 @@
 @auth
 <div class="modal">
    <div class="modal-background" onclick="document.querySelector('.modal').classList.remove('is-active')"></div>
-    <div class="modal-card" style="color: white"><task-form :types="{{$globalBalanceData['types']}}"></task-form></div>
+    <div class="modal-card" style="color: white"><task-form :types="{{$user->type}}"></task-form></div>
 </div>
 @endauth

@@ -76,6 +76,10 @@ return [
     'unCheck' =>'Un-Check Selected',
     'delete-activity' => 'Delete Activity',
     'manage-types' => 'Manage Types',
+    'daily-spending' => 'Daily Spending',
+    'todayActivities' => 'View Today Activities',
+    'number-of-activities-made-today' => 'activities today so far',
+    'more-about-activity' => 'More about this activity',
 
     'problem-deleting activity'=> 'Problem deleting Activity.',
     'activity-deleted' => 'Activity Deleted!',
