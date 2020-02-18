@@ -43,7 +43,8 @@
         @endif
         <form action="{{route('activities.store')}}" method="post" enctype="multipart/form-data">
             @csrf
-            <div class="field" label="{{__('general.payment-type')}}">
+            <div class="field">
+                <label class="label">{{__('general.payment-type')}}</label>
                 <div class="select">
                     <select placeholder="{{__('general.payment-type')}}"   name="type_id" style="text-align: {{auth()->user()->locale == 'he' ? 'right' : 'left'}}">
 
