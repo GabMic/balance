@@ -48,7 +48,7 @@ class User extends Authenticatable
 
     public function type()
     {
-        return $this->hasMany(Type::class);
+        return $this->hasMany(Type::class)->orderBy('name', 'desc');
     }
 
     public function budget()
