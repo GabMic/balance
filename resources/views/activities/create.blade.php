@@ -59,7 +59,8 @@
             <b-field label="{{__('general.amount-paid')}}">
                 <b-input type="number" placeholder="{{__('general.amount-paid')}}" custom-class="@error('amount') is-danger @enderror"  name="amount" step="0.01" value="{{old('amount')}}"></b-input>
             </b-field>
-            <div class="field" label="{{__('general.payment-method')}}">
+            <div class="field">
+                <label class="label">{{__('general.payment-method')}}</label>
                 <div class="select">
                     <select placeholder="{{__('general.payment-method')}}" name="method_id" style="text-align: {{auth()->user()->locale == 'he' ? 'right' : 'left'}}">
                         @forelse($methods as $method)
