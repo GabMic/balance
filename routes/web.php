@@ -19,15 +19,12 @@ Route::group(['middleware' => 'language'], function () {
     Route::get('activity/today', 'ActivityController@today');
     Route::resource('information', 'InformationController');
 
-
-    Route::get('/test', 'ChartDataController@today');
     Route::view('/setup', 'setup')->middleware('auth');
-
 
     Route::get('/fetch-data-table', 'DataTableController@index');
     Route::get('/fetch-data-table-after-delete', 'DataTableController@fetchAfterDeletedType');
 
-    Route::post('/language/{lang}', function (){DB::table('users')->where('id', auth()->user()->id)->update(['locale' => request()->lang]);});
+    Route::post('/language/{lang}', function (){DB::table('users')->where('id', Auth::id())->update(['locale' => request()->lang]);});
 
 });
 

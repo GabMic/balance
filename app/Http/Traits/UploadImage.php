@@ -4,6 +4,8 @@
 namespace App\Http\Traits;
 
 
+use Illuminate\Support\Facades\Auth;
+
 trait UploadImage
 {
     /**
@@ -15,7 +17,7 @@ trait UploadImage
 
         $clientOriginalName = $image->getClientOriginalName();
 
-        $id = auth()->user()->id;
+        $id = Auth::id();
         $image->storeAs('/public/bills/' . $id, $clientOriginalName);
         return '/storage/bills/' . $id . '/' . $clientOriginalName;
 

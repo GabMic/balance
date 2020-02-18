@@ -26,7 +26,6 @@ class Type extends Model
     public function tasks()
     {
         return $this->hasMany(Task::class)
-            ->where('done', 0)
             ->where('user_id', Auth::id());
     }
 

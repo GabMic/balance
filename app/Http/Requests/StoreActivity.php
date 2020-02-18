@@ -25,7 +25,7 @@ class StoreActivity extends FormRequest
     {
         return [
             'type_id' => "required|exists:App\Type,id",
-            'paid_at' => "required|date",
+            'paid_at' => "required",
             'amount' => "required|numeric|between:1,1000000.00",
             'confirmation' => "nullable|string",
             'info' => "nullable|string",

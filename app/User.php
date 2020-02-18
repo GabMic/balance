@@ -66,7 +66,7 @@ class User extends Authenticatable
     }
 
     public function activityForToday($day = null){
-        return $this->activity()->whereMonth('paid_at', Carbon::now()->month)->whereDay('paid_at', $day);
+        return $this->activity()->whereMonth('paid_at', Carbon::now()->month)->whereDay('paid_at', $day)->get();
     }
 
 }

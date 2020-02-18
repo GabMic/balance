@@ -2,6 +2,37 @@
 @section('title')
     {{__('general.new-activity')}}
 @endsection
+@section('css')
+    <style>
+        h3 {
+            display: grid;
+            width: 100%;
+            align-items: center;
+            text-align: center;
+            grid-template-columns: minmax(20px, 1fr) auto minmax(20px, 1fr);
+            grid-gap: 20px;
+            font-weight: 400;
+            font-size: 28px;
+            color: #818078;
+            margin: 3rem 0 3rem;
+        }
+
+        h3:before,
+        h3:after {
+            content: '';
+            height: 1px;
+        }
+
+        h3:after {
+            background: linear-gradient(to right, transparent, #818078);
+        }
+
+        h3:before {
+            background: linear-gradient(to right, #818078, transparent);
+        }
+    </style>
+
+    @endsection
 
 @section('content')
 <div class="columns is-centered m-1">
@@ -38,37 +69,30 @@
                     </select>
                 </div>
             </div>
-            <b-field label="{{__('general.bill-paid-at')}}">
-                <input type="datetime-local" id="paid_at" name="paid_at" class="input @error('paid_at') is-danger @enderror" value="{{old('paid_at')}}">
-            </b-field>
+            <div class="field" label="{{__('general.bill-paid-at')}}">
+                <div class="control">
+                    <input type="datetime-local" id="paid_at" name="paid_at" class="input @error('paid_at') is-danger @enderror" value="{{old('paid_at')}}">
+                </div>
+            </div>
+
+            <h3>{{__('general.optional-activity-form-inputs')}}</h3>
 
 
-            <label class="label">{{__('general.optional-activity-form-inputs')}}</label>
-
-            <details>
-                <summary>{{__('general.payment-confirmation')}}</summary>
                 <b-field label="{{__('general.payment-confirmation')}}">
                     <b-input type="number" placeholder="{{__('general.payment-confirmation')}}" custom-class="@error('confirmation') is-danger @enderror"  name="confirmation" value="{{old('confirmation')}}"></b-input>
                 </b-field>
-            </details>
-            <details>
-                <summary>{{__('general.bill-number')}}</summary>
+
                 <b-field label="{{__('general.bill-number')}}">
                     <b-input type="number"  placeholder="{{__('general.bill-number')}}" custom-class="@error('bill_id') is-danger @enderror"  name="bill_id" value="{{old('bill_id')}}"></b-input>
                 </b-field>
-            </details>
-            <details>
-                <summary>{{__('general.additional-info')}}</summary>
+
                 <b-field label="{{__('general.additional-info')}}">
                     <b-input type="text" placeholder="{{__('general.additional-info')}}" custom-class="@error('info') is-danger @enderror" name="info" value="{{old('info')}}"></b-input>
                 </b-field>
-            </details>
-            <details>
-                <summary>{{__('general.bill-picture')}}</summary>
+
                 <b-field label="{{__('general.bill-picture')}}">
                     <b-input type="file" placeholder="{{__('general.bill-picture')}}"  name="image" accept="image/*"></b-input>
                 </b-field>
-            </details>
             @if($errors->any())
             <p class="help is-danger">{{__('general.fix-errors-in-form')}}</p>
             @endif

@@ -16,24 +16,14 @@ class TaskController extends Controller
      */
     public function index()
     {
-        return Auth::user()->task();
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-        //
+        return Auth::user()->tasks()->get();
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param Request $request
-     * @return array|Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
@@ -51,27 +41,6 @@ class TaskController extends Controller
         return back();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param Task $task
-     * @return Response
-     */
-    public function show(Task $task)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param Task $task
-     * @return Response
-     */
-    public function edit(Task $task)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.

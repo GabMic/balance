@@ -81,11 +81,13 @@ class ActivityController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param Activity $activity
-     * @return Response
+     * @return Factory|View
      */
     public function edit(Activity $activity)
     {
-        //
+
+        $methods = Method::all(['id', 'type', 'english_type']);
+        return view('activities.edit', compact('activity', 'methods'));
     }
 
     /**
@@ -93,11 +95,16 @@ class ActivityController extends Controller
      *
      * @param Request $request
      * @param Activity $activity
-     * @return Response
+     * @return void
      */
-    public function update(Request $request, Activity $activity)
+    public function update(StoreActivity $request, Activity $activity)
     {
-        //
+        $request->file('image') ? $image = UploadImage::upload($request->file('image')) : $image = '';
+        $attributes = $request->validated();
+        $activity->update($attributes);
+
+        return route('activities.show', $activity);
+
     }
 
     /**
@@ -116,7 +123,7 @@ class ActivityController extends Controller
 
     public function today(){
         $day = Carbon::now()->day;
-        $activities = Auth::user()->activityForToday($day)->get();
+        $activities = Auth::user()->activityForToday($day);
         return view('activities.today', compact('activities'));
     }
 }
