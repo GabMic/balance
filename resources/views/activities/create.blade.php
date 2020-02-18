@@ -74,7 +74,7 @@
             <div class="field">
                 <label class="label">{{__('general.bill-paid-at')}}</label>
                 <div class="control">
-                    <input type="datetime-local" id="paid_at" name="paid_at" class="input @error('paid_at') is-danger @enderror" value="{{old('paid_at')}}">
+                    <input type="datetime" id="paid_at" name="paid_at" class="input @error('paid_at') is-danger @enderror" value="{{old('paid_at')}}">
                 </div>
             </div>
 
