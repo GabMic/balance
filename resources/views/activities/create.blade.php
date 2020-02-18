@@ -70,9 +70,7 @@
                 </div>
             </div>
             <div class="field" label="{{__('general.bill-paid-at')}}">
-                <div class="control">
                     <input type="datetime-local" id="paid_at" name="paid_at" class="input @error('paid_at') is-danger @enderror" value="{{old('paid_at')}}">
-                </div>
             </div>
 
             <h3>{{__('general.optional-activity-form-inputs')}}</h3>
