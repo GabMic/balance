@@ -13,7 +13,7 @@
             grid-gap: 20px;
             font-weight: 400;
             font-size: 28px;
-            color: #818078;
+            color: #0059ff;
             margin: 3rem 0 3rem;
         }
 
@@ -24,11 +24,11 @@
         }
 
         h3:after {
-            background: linear-gradient(to right, transparent, #818078);
+            background: linear-gradient(to right, transparent, #10ff99);
         }
 
         h3:before {
-            background: linear-gradient(to right, #818078, transparent);
+            background: linear-gradient(to right, #00f6ff, transparent);
         }
     </style>
 
