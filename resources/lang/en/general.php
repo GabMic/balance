@@ -79,6 +79,7 @@ return [
     'daily-spending' => 'Daily Spending',
     'todayActivities' => 'View Today Activities',
     'number-of-activities-made-today' => 'activities today so far',
+    'number-of-activities-made-this-month' => 'activities for this month',
     'more-about-activity' => 'More about this activity',
 
     'problem-deleting activity'=> 'Problem deleting Activity.',

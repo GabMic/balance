@@ -47,6 +47,7 @@ return [
     'no-notes' => 'לא נוספו פתקים בינתיים',
     'display-data-for-another-year'=>'בחירת נתוני תשלום עבור שנה אחרת',
     'fix-errors-in-form' => 'תקנו את השגיאות בטופס ושלחו שוב.',
+    'number-of-activities-made-this-month' => 'פעילויות החודש',
     'for' => 'עבור ',
     'note-deleted' => 'הפתק נמחק',
     'payments-list' => [

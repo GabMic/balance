@@ -17,6 +17,7 @@ Route::group(['middleware' => 'language'], function () {
     Route::resource('budget', 'BudgetController');
     Route::resource('activities', 'ActivityController');
     Route::get('activity/today', 'ActivityController@today');
+    Route::get('activity/this-month', 'ActivityController@thisMonth');
     Route::resource('information', 'InformationController');
 
     Route::view('/setup', 'setup')->middleware('auth');

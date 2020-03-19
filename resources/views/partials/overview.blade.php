@@ -32,6 +32,8 @@
                             <div class="is-widget-label">
                                 <h5 class="subtitle is-5 is-spaced">@lang('general.total-paid-this-month') {{$month}}</h5>
                                 <h1 class="title is-1-mobile">{{$totalExpensesThisMonth}} {{__('general.currency')}}</h1>
+                                <hr style="margin: 0.2rem">
+                                <a href="/activity/this-month">{{__('general.number-of-activities-made-this-month')}}</a>
                             </div>
                         </div>
                         <div class="level-item has-widget-icon">

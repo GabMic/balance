@@ -126,4 +126,9 @@ class ActivityController extends Controller
         $activities = Auth::user()->activityForToday($day);
         return view('activities.today', compact('activities'));
     }
+
+    public function thisMonth(){
+        $activities = Auth::user()->activityForThisMonth();
+        return view('activities.this-month', compact('activities'));
+    }
 }

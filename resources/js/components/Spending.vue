@@ -4,7 +4,7 @@
             <h5 class="subtitle is-5 is-spaced" v-text="text.title"></h5>
             <button class="button is-large is-info is-loading is-outlined" style="border-color: transparent;" v-if="loading"></button>
             <h1 class="title is-1-mobile" v-text="amount + text.currency"></h1>
-            <hr style="margin: 0.4rem">
+            <hr style="margin: 0.3rem">
             <a href="/activity/today">{{text.viewTodayActivities}}</a>
         </div>
     </div>
