@@ -63,8 +63,6 @@
                 <h1 class="title">{{__('general.setup-new-user.budget.title')}}</h1>
                 <h4 class="subtitle is-4">{{__('general.setup-new-user.budget.info')}}</h4>
                 <hr>
-                <h3 class="title is-3">{{__('general.budget')}}</h3>
-                <hr>
 
                 <h5 class="subtitle is-5">{{__('general.set-new-budget-for')}} <b>{{$month ?? ''}}</b></h5>
                 <form action="{{route('budget.store')}}" method="post">
