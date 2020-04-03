@@ -5,7 +5,7 @@ namespace App;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
-use Stevebauman\Purify\Facades\Purify;
+use Mews\Purifier\Facades\Purifier;
 
 
 class Type extends Model
@@ -41,7 +41,7 @@ class Type extends Model
      */
     public function getAttributes(): array
     {
-        return Purify::clean($this->attributes);
+        return $this->attributes;
     }
 
 

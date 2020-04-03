@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Stevebauman\Purify\Facades\Purify;
+use Mews\Purifier\Facades\Purifier;
 
 
 class Activity extends Model
@@ -33,7 +33,7 @@ class Activity extends Model
      */
     public function getAttributes(): array
     {
-        return Purify::clean($this->attributes);
+        return $this->attributes;
     }
 
 }

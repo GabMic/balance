@@ -13,11 +13,6 @@
             <b-field label="{{__('general.new-tag-name')}}">
                 <b-input type="text" placeholder="{{__('general.new-tag-name')}}" custom-class="@error('name') is-danger @enderror" name="name" value="{{old('name')}}"></b-input>
             </b-field>
-            <b-field label="{{__('general.new-tag-consumer-number')}}">
-                <div class="control">
-                    <b-input type="number" placeholder="{{__('general.new-tag-consumer-number')}}" custom-class="@error('consumer_number') is-danger @enderror" name="consumer_number" value="{{old('consumer_number')}}"></b-input>
-                </div>
-            </b-field>
             <b-button  type="{{$errors->any() ? 'is-danger' : 'is-success'}} is-fullwidth"  outlined native-type="submit">
                 {{$errors->any() ? 'FIX ERRORS ABOVE FIRST AND RE-SEND' :  __('general.bill-form-submit')}}
             </b-button>
