@@ -27,7 +27,6 @@ class BudgetController extends Controller
         $month = Carbon::now()->monthName;
         $currentMonthBudget = Auth::user()->budget()->latest()->whereMonth('created_at', Carbon::now()->month)->latest()->pluck('budget')->first();
         $totalExpensesThisMonth = Auth::user()->activity()->whereMonth('paid_at', Carbon::now()->month)->sum('amount');
-//        dd($currentMonthBudget, $totalExpensesThisMonth, $month);
         $budgetStatus = $currentMonthBudget - $totalExpensesThisMonth;
 
 
@@ -45,51 +44,7 @@ class BudgetController extends Controller
     {
         $attr = $request->validate(['budget' => 'required|numeric|min:1|max:1000000']);
         Budget::create($attr + ['user_id' => Auth::id()]);
-        return back();
+        return back()->with('flash', 'התקציב נוצר בהצלחה');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param Budget $budget
-     * @return Response
-     */
-    public function show(Budget $budget)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param Budget $budget
-     * @return Response
-     */
-    public function edit(Budget $budget)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param Request $request
-     * @param Budget $budget
-     * @return Response
-     */
-    public function update(Request $request, Budget $budget)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param Budget $budget
-     * @return Response
-     */
-    public function destroy(Budget $budget)
-    {
-        //
-    }
 }
