@@ -7,7 +7,7 @@
 @section('content')
     <div class="columns is-centered m-1">
         <div class="column is-4">
-            <h5 class="subtitle is-5">{{__('general.set-new-budget-for')}} <b>{{$month}}</b></h5>
+            <h5 class="subtitle is-5">{{__('general.set-new-budget-for')}} <b>{{$budgetInfo->forMonth}}</b></h5>
             <hr>
             @if($errors->any())
                 @include('partials.form-errors')
@@ -24,15 +24,15 @@
         </div>
         <div class="column is-4">
             <div class="box">
-                <h6>{{__('general.budget')}} <strong>{{$month}}</strong>: {{number_format($currentMonthBudget)}}{{__('general.currency')}}.</h6>
+                <h6>{{__('general.budget')}} <strong>{{$budgetInfo->forMonth}}</strong>: {{number_format($budgetInfo->currentMonthBudget)}}{{__('general.currency')}}.</h6>
                 <hr>
-                {{__('general.total-paid-this-month')}} <strong>{{$month}}</strong>: <strong>{{number_format($totalExpensesThisMonth)}}</strong>{{__('general.currency')}}.
+                {{__('general.total-paid-this-month')}} <strong>{{$budgetInfo->forMonth}}</strong>: <strong>{{number_format($budgetInfo->totalExpensesThisMonth)}}</strong>{{__('general.currency')}}.
                 <hr>
                 {{__('general.budget-after-expenses')}}
-                @if($budgetStatus < 0 )
-                    <strong style="color: red">{{number_format($budgetStatus)}}</strong>
-                @elseif($budgetStatus >= 0)
-                    <strong style="color: green">{{number_format($budgetStatus)}}</strong>
+                @if($budgetInfo->budgetStatus < 0 )
+                    <strong style="color: red">{{number_format($budgetInfo->budgetStatus)}}</strong>
+                @elseif($budgetInfo->budgetStatus >= 0)
+                    <strong style="color: green">{{number_format($budgetInfo->budgetStatus)}}</strong>
                 @endif{{__('general.currency')}}.
             </div>
         </div>

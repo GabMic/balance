@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Type;
+use Illuminate\Support\Facades\Request;
 use JavaScript;
 use Carbon\Carbon;
 use Illuminate\View\View;
@@ -53,6 +54,7 @@ class TypeController extends Controller
     /**
      * Store a newly created resource in storage.
      *
+     *
      * @param StoreType $request
      * @return RedirectResponse
      */
@@ -62,7 +64,7 @@ class TypeController extends Controller
         $attributes = $request->validated();
 
         Type::create($attributes + ['user_id' => Auth::id()]);
-        return back();
+        return back()->with('flash', 'התגית נוצרה בהצלחה');;
     }
 
     /**

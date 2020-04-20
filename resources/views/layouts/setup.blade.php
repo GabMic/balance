@@ -21,6 +21,9 @@
     @include('partials.navbar')
     <main class="container">
         @yield('content')
+        @if(session()->has('flash'))
+            @include('partials.flash')
+        @endif
         <flash message="{{session('flash')}}"></flash>
     </main>
 </div>

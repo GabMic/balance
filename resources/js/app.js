@@ -12,7 +12,7 @@ import Tasks from "./components/tasks/Tasks";
 import TaskForm from "./components/tasks/TaskForm";
 import TypeActivitiesList from "./components/TypeActivitiesList";
 import DataTable from "./components/DataTable";
-
+import GeneralForm from "./components/GeneralForm";
 import Spending from './components/Spending';
 
 
@@ -23,6 +23,8 @@ Vue.component('spending', Spending);
 Vue.component('task-form', TaskForm);
 Vue.component('type-activities-list', TypeActivitiesList);
 Vue.component('data-table', DataTable);
+Vue.component('general-form', GeneralForm);
+
 
 
 

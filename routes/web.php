@@ -15,6 +15,7 @@ Route::group(['middleware' => 'language'], function () {
     Route::resource('tasks', 'TaskController');
     Route::resource('types', 'TypeController');
     Route::resource('budget', 'BudgetController');
+    Route::resource('income', 'IncomeController');
     Route::resource('activities', 'ActivityController');
     Route::get('activity/today', 'ActivityController@today');
     Route::get('activity/this-month', 'ActivityController@thisMonth');

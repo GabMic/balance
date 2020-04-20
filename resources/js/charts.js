@@ -2,7 +2,7 @@ require('chart.js/dist/Chart.bundle')
 
 let ctx = document.getElementById('myChart');
 window.myChart = new Chart(ctx, {
-    type: 'line',
+    type: 'doughnut',
     data: {
         datasets: [{
             label: balance.paidThisYear,

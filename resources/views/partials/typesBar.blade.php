@@ -17,6 +17,7 @@
         <li><a  href="{{route('activities.create')}}">{{__('general.new-activity')}}</a></li>
         @auth<li onclick="document.querySelector('.modal').classList.add('is-active')"><a>{{__('general.add-a-note')}}</a></li>@endauth
         <li><a href="{{route('budget.index')}}">{{__('general.budget')}}</a></li>
+        <li><a href="{{route('income.index')}}">דף הכנסות</a></li>
     </ul>
 </div>
 

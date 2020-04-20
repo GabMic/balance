@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Response;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
@@ -22,7 +23,7 @@ class HomeController extends Controller
         JavaScript::put(['emptyNotes' => __('general.no-notes')]);
 
         if (Auth::check()) {
-            $currentMonthBudget = Auth::user()->budget()->whereMonth('created_at', Carbon::now()->month)->latest()->pluck('budget')->first() < 1 ? 1 : Auth::user()->budget()->whereMonth('created_at', Carbon::now()->month)->latest()->pluck('budget')->first();
+            $currentMonthBudget = Arr::first( Auth::user()->budget()->pluck('budget'));
             $totalExpensesThisMonth = Auth::user()->activity()->whereMonth('paid_at', Carbon::now()->month)->sum('amount');
             $budgetStatus = number_format(($totalExpensesThisMonth / $currentMonthBudget) * 100, 2);
             return view('home', compact( 'budgetStatus', 'currentMonthBudget', 'totalExpensesThisMonth'));

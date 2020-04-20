@@ -6,9 +6,11 @@ use App\Budget;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use stdClass;
 
 class BudgetController extends Controller
 {
@@ -24,13 +26,21 @@ class BudgetController extends Controller
      */
     public function index()
     {
-        $month = Carbon::now()->monthName;
-        $currentMonthBudget = Auth::user()->budget()->latest()->whereMonth('created_at', Carbon::now()->month)->latest()->pluck('budget')->first();
+
+
+        $currentMonthBudget = Arr::first( Auth::user()->budget()->pluck('budget'));
         $totalExpensesThisMonth = Auth::user()->activity()->whereMonth('paid_at', Carbon::now()->month)->sum('amount');
         $budgetStatus = $currentMonthBudget - $totalExpensesThisMonth;
 
+        $budgetInfo = (object)[
+            "forMonth" => Carbon::now()->monthName,
+            "currentMonthBudget" => $currentMonthBudget,
+            "totalExpensesThisMonth" => $totalExpensesThisMonth,
+            "budgetStatus" => $budgetStatus
+        ];
 
-        return view('budget.index', compact('currentMonthBudget', 'totalExpensesThisMonth', 'budgetStatus', 'month'));
+
+        return view('budget.index', compact('budgetInfo'));
     }
 
 
@@ -43,7 +53,7 @@ class BudgetController extends Controller
     public function store(Request $request)
     {
         $attr = $request->validate(['budget' => 'required|numeric|min:1|max:1000000']);
-        Budget::create($attr + ['user_id' => Auth::id()]);
+        Budget::updateOrCreate(['user_id' => Auth::id()], $attr);
         return back()->with('flash', 'התקציב נוצר בהצלחה');
     }
 

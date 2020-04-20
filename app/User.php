@@ -53,7 +53,7 @@ class User extends Authenticatable
 
     public function budget()
     {
-        return $this->hasMany(Budget::class);
+        return $this->hasOne(Budget::class);
     }
 
     public function tasks()
@@ -61,14 +61,22 @@ class User extends Authenticatable
         return $this->hasMany(Task::class);
     }
 
-    public function isAdmin(){
+    public function isAdmin()
+    {
         return $this->admin;
     }
 
-    public function activityForToday($day = null){
+    public function activityForToday($day = null)
+    {
         return $this->activity()->whereMonth('paid_at', Carbon::now()->month)->whereDay('paid_at', $day)->get();
     }
-    public function activityForThisMonth(){
+
+    public function activityForThisMonth()
+    {
         return $this->activity()->whereMonth('paid_at', Carbon::now()->month)->get();
+    }
+
+    public function income(){
+        return $this->hasMany(Income::class);
     }
 }

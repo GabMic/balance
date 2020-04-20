@@ -77,7 +77,8 @@
                         class="button is-fullwidth is-success is-outlined">{{__('general.bill-form-submit')}}</button>
                 </form>
 
-                <a href="/" class="button is-success is-fullwidth" style="margin-top: 1.5rem">{{__('general.setup-new-user.finish-setup')}}</a>
+                <a href="/" class="button is-success is-fullwidth"
+                   style="margin-top: 1.5rem">{{__('general.setup-new-user.finish-setup')}}</a>
             </section>
         </div>
     </div>
