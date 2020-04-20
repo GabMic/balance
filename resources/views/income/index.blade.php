@@ -26,7 +26,7 @@
                             <textarea class="textarea" name="info" placeholder="מידע נוסף על ההכנסה הזו. למשל, של מי ההכנסה הזו או אולי זה מענק כלשהו שקיבלתם."></textarea>
                         </div>
                     </div>
-                    <button class="button is-fullwidth is-success is-outlined">{{__('general.bill-form-submit')}}</button>
+                    <button class="button is-fullwidth is-success is-outlined" onclick="this.classList.add('is-loading')">{{__('general.bill-form-submit')}}</button>
                 </form>
             </div>
         </div>
@@ -38,9 +38,7 @@
                     <div class="box">
                         <h6>{{number_format($income->amount)}} {{__('general.currency')}}</h6>
                         <hr>
-                        <p>
-                            {{$income->info}}
-                        </p>
+                        <p>{{$income->info}}</p>
                     </div>
                 </div>
             @empty

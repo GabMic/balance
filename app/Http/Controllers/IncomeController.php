@@ -27,7 +27,7 @@ class IncomeController extends Controller
 
         $incomeInfo = Auth::user()->income()->get();
 
-
+        //dd($incomeInfo);
         return view('income.index', compact('incomeInfo'));
     }
 
@@ -41,7 +41,7 @@ class IncomeController extends Controller
     public function store(Request $request)
     {
         $attr = $request->validate(['amount' => 'required|numeric|min:0|max:1000000', 'info' => 'required']);
-        Income::updateOrCreate(['user_id' => Auth::id()], $attr);
+        Income::create($attr + ['user_id' => Auth::id()]);
         return back()->with('flash', 'ההכנסה עודכנה');
     }
 }
