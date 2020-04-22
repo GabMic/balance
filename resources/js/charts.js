@@ -2,7 +2,7 @@ require('chart.js/dist/Chart.bundle')
 
 let ctx = document.getElementById('myChart');
 window.myChart = new Chart(ctx, {
-    type: 'doughnut',
+    type: 'line',
     data: {
         datasets: [{
             label: balance.paidThisYear,
@@ -23,7 +23,7 @@ window.myChart = new Chart(ctx, {
                 'rgb(77,113,154)',
             ],
             borderColor: 'rgb(0,0,0)',
-            borderWidth: 1.5
+            borderWidth: 3
         }],
         labels: balance.monthsArray
     },

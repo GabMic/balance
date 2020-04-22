@@ -20,6 +20,7 @@ class HomeController extends Controller
      */
     public function __invoke()
     {
+
         JavaScript::put(['emptyNotes' => __('general.no-notes')]);
 
         if (Auth::check()) {

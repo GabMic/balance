@@ -3,12 +3,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 use Mews\Purifier\Facades\Purifier;
 
 
 class Activity extends Model
 {
     protected $guarded = [];
+    protected $with = ['type'];
 
     public function type()
     {

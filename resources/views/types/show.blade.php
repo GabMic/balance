@@ -10,12 +10,13 @@
             <div class="box">
                 <h6 class="title is-6">{{__('general.display-data-for-another-year')}}</h6>
                 <div class="select">
-                    <select id="selectDataYear">
-                        <option value="2020">2020</option>
-                        <option value="2019">2019</option>
-                        <option value="2018">2018</option>
-                        <option value="2017">2017</option>
-                        <option value="2016">2016</option>
+                    <select id="selectDataMonth">
+                        <option value="1">לפני חודש</option>
+                        <option value="2">לפני חודשיים</option>
+                        <option value="3">לפני שלושה חודשים</option>
+                        <option value="4">לפני ארבעה חודשים</option>
+                        <option value="5">לפני חמישה חודשים</option>
+                        <option value="6">לפני חצי שנה</option>
                     </select>
                 </div>
                 <button class="button is-info is-outlined" onclick="displayNewDataOnChart()">{{__('general.bill-form-submit')}}</button>
@@ -50,11 +51,11 @@
 
     <script>
         function displayNewDataOnChart() {
-            let dropdown = document.getElementById("selectDataYear");
+            let dropdown = document.getElementById("selectDataMonth");
             let value = dropdown.options[dropdown.selectedIndex].value;
             axios.put(`/types/${window.balance.type.id}`, {
                 typeId: window.balance.type.id,
-                year: value
+                month: value
             }).then(({data}) => {
                 let response = {
                     label: `{{__('general.for')}} ${value}`,

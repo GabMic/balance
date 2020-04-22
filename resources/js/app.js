@@ -15,7 +15,6 @@ import DataTable from "./components/DataTable";
 import GeneralForm from "./components/GeneralForm";
 import Spending from './components/Spending';
 
-
 Vue.component('task', Task);
 Vue.component('tasks', Tasks);
 Vue.component('flash', Flash);

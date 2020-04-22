@@ -112,7 +112,7 @@ class TypeController extends Controller
     public function update($typeId)
     {
         $type = Type::find($typeId);
-        $chartData = $this->buildChartData($type, request()->year);
+        $chartData = $this->buildChartData($type, request()->month);
         if (request()->expectsJson()) {
             return ["amounts" => Arr::flatten($chartData)];
         }

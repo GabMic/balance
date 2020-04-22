@@ -5,6 +5,7 @@ namespace App\Http\Traits;
 
 
 use App\Activity;
+use Carbon\Carbon;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 
