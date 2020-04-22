@@ -26,6 +26,8 @@ Route::group(['middleware' => 'language'], function () {
     Route::get('/fetch-data-table', 'DataTableController@index');
     Route::get('/fetch-data-table-after-delete', 'DataTableController@fetchAfterDeletedType');
 
+    Route::post('/data-for-another-period', 'TypeController@getDataForAnotherPeriod');
+
     Route::post('/language/{lang}', function (){DB::table('users')->where('id', Auth::id())->update(['locale' => request()->lang]);});
 
 });

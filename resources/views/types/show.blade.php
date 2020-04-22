@@ -8,10 +8,10 @@
     <div class="columns is-centered m-1">
         <div class="column is-7">
             <div class="box">
-                <h6 class="title is-6">{{__('general.display-data-for-another-year')}}</h6>
+                <h6 class="title is-6">{{__('general.display-data-for-another-time')}}</h6>
                 <div class="select">
                     <select id="selectDataMonth">
-                        <option value="1">לפני חודש</option>
+                        <option value="1">חודש שעבר</option>
                         <option value="2">לפני חודשיים</option>
                         <option value="3">לפני שלושה חודשים</option>
                         <option value="4">לפני ארבעה חודשים</option>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Activity;
 use App\Type;
 use Illuminate\Support\Facades\Request;
 use JavaScript;
@@ -11,6 +12,7 @@ use Illuminate\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\Http\Response;
 use App\Http\Traits\Chartable;
+use App\Http\Traits\GetSubMonthsArray;
 use App\Http\Requests\StoreType;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
@@ -20,7 +22,8 @@ use Illuminate\Auth\Access\AuthorizationException;
 class TypeController extends Controller
 {
 
-    use Chartable;
+
+    use Chartable, GetSubMonthsArray;
 
     public function __construct()
     {
@@ -80,11 +83,12 @@ class TypeController extends Controller
         $year = Carbon::now()->year;
         $currentMonthTypeActivitiesList = $type->activity()->get();
         $this->authorize('view', $type);
-
+        $subMonthesArray = $this->getSubMonthsArray();
         $chartData = $this->buildChartData($type, $year);
 
         JavaScript::put([
             "amounts" => Arr::flatten($chartData),
+            "subMonthes" => $subMonthesArray,
             "nameOfChart" => $type->name,
             'typeActivitiesList' => $currentMonthTypeActivitiesList,
             'type' => $type,
@@ -134,6 +138,15 @@ class TypeController extends Controller
 
         return  __('general.problem-deleting-type');;
 
+    }
+
+    public function getDataForAnotherPeriod(){
+
+         return Activity::where('type_id', request()->type_id)
+            ->where('user_id', Auth::id())
+            ->whereMonth('paid_at', request()->month)
+            ->whereYear('paid_at', request()->year)
+            ->get();
     }
 
 }

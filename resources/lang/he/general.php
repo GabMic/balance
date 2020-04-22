@@ -45,7 +45,7 @@ return [
     'form-errors' => 'היו כמה בעיות בטופס, אנא תקנו אותם.',
     'things-to-remember-about-tag' => 'דברים לזכור לגבי התגית ',
     'no-notes' => 'לא נוספו פתקים בינתיים',
-    'display-data-for-another-year'=>'בחירת נתוני תשלום עבור שנה אחרת',
+    'display-data-for-another-time'=>'בחירת נתוני תשלום עבור תקופה אחרת',
     'fix-errors-in-form' => 'תקנו את השגיאות בטופס ושלחו שוב.',
     'number-of-activities-made-this-month' => 'פעילויות החודש',
     'for' => 'עבור ',
