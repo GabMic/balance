@@ -5,9 +5,13 @@ namespace App\Http\Controllers;
 use App\Method;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use App\Http\Requests\StoreMethod;
 
 class MethodController extends Controller
 {
+    public function __construct(){
+        $this->middleware('admin');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -25,7 +29,7 @@ class MethodController extends Controller
      */
     public function create()
     {
-        //
+        return view('methods.create');
     }
 
     /**
@@ -34,9 +38,13 @@ class MethodController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(StoreMethod $request)
     {
-        //
+        
+        $attributes = $request->validated();
+
+        Method::create($attributes);
+        return back()->with('flash', 'שיטת התשלום נוצרה בהצלחה');;
     }
 
     /**

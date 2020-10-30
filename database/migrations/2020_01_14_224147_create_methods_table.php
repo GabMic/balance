@@ -16,6 +16,7 @@ class CreateMethodsTable extends Migration
         Schema::create('methods', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('type');
+            $table->string('english_type');
             $table->timestamps();
         });
     }

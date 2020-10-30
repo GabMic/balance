@@ -17,10 +17,13 @@ class CreateActivitiesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('type_id');
-            $table->timestamp('paid_at');
+            $table->bigInteger('bill_id')->default(123456);
+            $table->timestamp('paid_at')->nullable();
             $table->float('amount');
-            $table->integer('confirmation');
-            $table->text('info');
+            $table->integer('confirmation')->nullable();
+            $table->text('info')->nullable();
+            $table->unsignedInteger('method_id');
+            $table->string('image');
             $table->timestamps();
         });
     }

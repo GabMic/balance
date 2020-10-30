@@ -16,7 +16,7 @@ class CreateTypesTable extends Migration
         Schema::create('types', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->integer('consumer_number');
+            $table->unsignedInteger('user_id');
             $table->timestamps();
         });
     }
